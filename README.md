@@ -7,7 +7,7 @@ Classroom for DBS Python training program.
 - Pre-requisites: A [GitHub](https://github.com/) account
 
 - Institute: DBS Bank Taiwan
-- Instructor: Kuo, Yao-Jen <yaojenkuo@datainpoint>
+- Instructor: Kuo, Yao-Jen <yaojenkuo@datainpoint.com>
 
 About instructor: <https://www.datainpoint.com/>
 
