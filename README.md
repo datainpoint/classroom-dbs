@@ -23,6 +23,8 @@ About instructor: <https://www.datainpoint.com/>
 |----|------|
 |2020-09-16|[Getting Started with Python](https://datainpoint.github.io/classroom-dbs/01-getting-started-with-python.slides.html)|
 |2020-09-18|[Getting Started with Python](https://datainpoint.github.io/classroom-dbs/01-getting-started-with-python.slides.html)|
+|2020-09-23|[Data Wrangling with Python](https://datainpoint.github.io/classroom-dbs/02-data-wrangling-with-python.slides.html)|
+|2020-09-25|[Data Wrangling with Python](https://datainpoint.github.io/classroom-dbs/02-data-wrangling-with-python.slides.html)|
 
 How to convert `slides.html` to PDF format?
 - Add `?print-pdf` at the end of `slides.html` making it `slides.html?print-pdf` and press enter
