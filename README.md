@@ -17,6 +17,10 @@ About instructor: <https://www.datainpoint.com/>
 
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/datainpoint/data-science-binder/vanilla-python-3-8-5)
 
+## YouTube Playlist Link
+
+<https://www.youtube.com/playlist?list=PLEq7iw5uOtuVPSrnS1l9BnooPv_n_Prjh>
+
 ## Dates and Slides
 
 |Date|Slides|
