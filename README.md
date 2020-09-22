@@ -34,3 +34,9 @@ How to convert `slides.html` to PDF format?
 - Add `?print-pdf` at the end of `slides.html` making it `slides.html?print-pdf` and press enter
 - Copy and paste the URL to your Chrome browser
 - File > Print... > Save as PDF
+
+## Exercises and Suggested Answers
+
+|Topic|||
+|-----|---------|-----------------|
+|Getting Started with Python|[Exercises](https://lab.datainpoint.com/hub/user-redirect/git-pull?repo=https%3A%2F%2Fgithub.com%2Fdatainpoint%2Fexercise-getting-started-with-python%2Ftree%2Fmaster&urlpath=tree%2Fmaster%2Fexericises.ipynb&branch=master)|[Suggested Answers](https://lab.datainpoint.com/hub/user-redirect/git-pull?repo=https%3A%2F%2Fgithub.com%2Fdatainpoint%2Fexercise-getting-started-with-python%2Ftree%2Fmaster&urlpath=tree%2Fmaster%2Fsuggested_answers.ipynb&branch=suggested-answers)|
