@@ -39,4 +39,4 @@ How to convert `slides.html` to PDF format?
 
 |Topic|||
 |-----|---------|-----------------|
-|Getting Started with Python|[Exercises](https://lab.datainpoint.com/hub/user-redirect/git-pull?repo=https%3A%2F%2Fgithub.com%2Fdatainpoint%2Fexercise-getting-started-with-python%2Ftree%2Fmaster&urlpath=tree%2Fmaster%2Fexericises.ipynb&branch=master)|[Suggested Answers](https://lab.datainpoint.com/hub/user-redirect/git-pull?repo=https%3A%2F%2Fgithub.com%2Fdatainpoint%2Fexercise-getting-started-with-python%2Ftree%2Fmaster&urlpath=tree%2Fmaster%2Fsuggested_answers.ipynb&branch=suggested-answers)|
+|Getting Started with Python|[Exercises](https://lab.datainpoint.com/hub/user-redirect/git-pull?repo=https%3A%2F%2Fgithub.com%2Fdatainpoint%2Fexercise-getting-started-with-python%2Ftree%2Fmaster&urlpath=tree%2Fmaster%2Fexercises.ipynb&branch=master)|[Suggested Answers](https://lab.datainpoint.com/hub/user-redirect/git-pull?repo=https%3A%2F%2Fgithub.com%2Fdatainpoint%2Fexercise-getting-started-with-python%2Ftree%2Fmaster&urlpath=tree%2Fmaster%2Fsuggested_answers.ipynb&branch=suggested-answers)|
