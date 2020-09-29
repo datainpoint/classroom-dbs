@@ -29,7 +29,7 @@ About instructor: <https://www.datainpoint.com/>
 |2020-09-18|[Getting Started with Python](https://datainpoint.github.io/classroom-dbs/01-getting-started-with-python.slides.html)||
 |2020-09-23|[Data Wrangling with Python](https://datainpoint.github.io/classroom-dbs/02-data-wrangling-with-python.slides.html)|[Exercises for Getting Started with Python](https://lab.datainpoint.com/hub/user-redirect/git-pull?repo=https%3A%2F%2Fgithub.com%2Fdatainpoint%2Fexercise-getting-started-with-python&urlpath=tree%2Fexercise-getting-started-with-python%2Fexercises.ipynb&branch=master)|
 |2020-09-25|[Data Wrangling with Python](https://datainpoint.github.io/classroom-dbs/02-data-wrangling-with-python.slides.html)||
-|2020-09-30|[Advanced Topics in Python](https://datainpoint.github.io/classroom-dbs/03-advanced-topics-in-python.slides.html)||
+|2020-09-30|[Advanced Topics in Python](https://datainpoint.github.io/classroom-dbs/03-advanced-topics-in-python.slides.html)|[Exercises for Data Wrangling with Python](https://lab.datainpoint.com/hub/user-redirect/git-pull?repo=https%3A%2F%2Fgithub.com%2Fdatainpoint%2Fexercise-data-wrangling-with-python&urlpath=tree%2Fexercise-data-wrangling-with-python%2Fexercises.ipynb&branch=master)|
 
 How to convert `slides.html` to PDF format?
 - Add `?print-pdf` at the end of `slides.html` making it `slides.html?print-pdf` and press enter
