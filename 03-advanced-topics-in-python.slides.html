@@ -15181,14 +15181,14 @@ absolute(x)
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Currently,-we-do-not-need-to-create-our-own-libraries-or-packages.-But-we-have-to-know-how-to-leverage-standard-and-third-party-modules/libraries">Currently, we do not need to create our own libraries or packages. But we have to know how to leverage standard and third party modules/libraries<a class="anchor-link" href="#Currently,-we-do-not-need-to-create-our-own-libraries-or-packages.-But-we-have-to-know-how-to-leverage-standard-and-third-party-modules/libraries">&#182;</a></h2>
+<h2 id="Currently,-we-might-not-need-to-create-our-own-libraries-or-packages.-But-we-have-to-know-how-to-leverage-standard-and-third-party-modules/libraries">Currently, we might not need to create our own libraries or packages. But we have to know how to leverage standard and third party modules/libraries<a class="anchor-link" href="#Currently,-we-might-not-need-to-create-our-own-libraries-or-packages.-But-we-have-to-know-how-to-leverage-standard-and-third-party-modules/libraries">&#182;</a></h2>
 </div>
 </div>
 </div></section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="How-to-install-a-library-or-module?">How to install a library or module?<a class="anchor-link" href="#How-to-install-a-library-or-module?">&#182;</a></h2><p>Use <code>pip install</code> command from bash.</p>
+<h2 id="How-to-install-a-library-or-module?">How to install a library or module?<a class="anchor-link" href="#How-to-install-a-library-or-module?">&#182;</a></h2><p>Use <code>pip install</code> command from at terminal.</p>
 <div class="highlight"><pre><span></span><span class="c1"># for example</span>
 pip install numpy pandas
 </pre></div>
@@ -15253,6 +15253,34 @@ pip install numpy pandas
 </div>
 </div>
 
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Make-our-own-simple_calculator.py-module">Make our own <code>simple_calculator.py</code> module<a class="anchor-link" href="#Make-our-own-simple_calculator.py-module">&#182;</a></h2><ul>
+<li>Create an empty <code>simple_calculator.py</code></li>
+<li>Copy our previously defined <code>SimpleCalculator</code> class and paste onto <code>simple_calculator.py</code></li>
+<li>Import from module</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">simple_calculator</span> <span class="kn">import</span> <span class="n">SimpleCalculator</span>
+</pre></div>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Make-our-own-calculators-library">Make our own <code>calculators</code> library<a class="anchor-link" href="#Make-our-own-calculators-library">&#182;</a></h2><ul>
+<li>Create an empty folder named <code>calculators</code></li>
+<li>Put <code>simple_calculator.py</code> inside folder <code>calculators</code></li>
+<li>Import from library</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">calculators.simple_calculator</span> <span class="kn">import</span> <span class="n">SimpleCalculator</span>
+</pre></div>
+
+</div>
+</div>
 </div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
