@@ -13407,6 +13407,7 @@ ModuleNotFoundError: No module named 'pandas'</code></pre>
 <li>Database table</li>
 <li>Spreadsheet</li>
 <li>Array of JSONs</li>
+<li>HTML <code>&lt;table&gt;&lt;/table&gt;</code> tags</li>
 <li>...etc.</li>
 </ul>
 <p>Source: <a href="https://pandas.pydata.org/pandas-docs/stable/user_guide/io.html">https://pandas.pydata.org/pandas-docs/stable/user_guide/io.html</a></p>
@@ -13452,9 +13453,9 @@ ModuleNotFoundError: No module named 'pandas'</code></pre>
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>2020-10-21
+<pre>2020-10-26
 &lt;class &#39;datetime.date&#39;&gt;
-10-21-2020
+10-26-2020
 </pre>
 </div>
 </div>
@@ -13583,6 +13584,339 @@ ModuleNotFoundError: No module named 'pandas'</code></pre>
 </div>
 </div>
 
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Using-read_html-function-for-HTML-&lt;table&gt;&lt;/table&gt;-tags">Using <code>read_html</code> function for HTML <code>&lt;table&gt;&lt;/table&gt;</code> tags<a class="anchor-link" href="#Using-read_html-function-for-HTML-&lt;table&gt;&lt;/table&gt;-tags">&#182;</a></h2><blockquote><p>The <code>&lt;table&gt;</code> tag defines an HTML table. An HTML table consists of one <code>&lt;table&gt;</code> element and one or more <code>&lt;tr&gt;</code>, <code>&lt;th&gt;</code>, and <code>&lt;td&gt;</code> elements. The <code>&lt;tr&gt;</code> element defines a table row, the <code>&lt;th&gt;</code> element defines a table header, and the <code>&lt;td&gt;</code> element defines a table cell.</p>
+</blockquote>
+<p>Source: <a href="https://www.w3schools.com/default.asp">https://www.w3schools.com/default.asp</a></p>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">request_url</span> <span class="o">=</span> <span class="s2">&quot;https://en.wikipedia.org/wiki/All-time_Olympic_Games_medal_table&quot;</span>
+<span class="n">html_tables</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_html</span><span class="p">(</span><span class="n">request_url</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">html_tables</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">html_tables</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>&lt;class &#39;list&#39;&gt;
+22
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div></section><section>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">html_tables</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[9]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead tr th {
+        text-align: left;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Unnamed: 0_level_0</th>
+      <th colspan="5" halign="left">Summer Games</th>
+      <th colspan="5" halign="left">Winter Games</th>
+      <th colspan="5" halign="left">Combined Total</th>
+    </tr>
+    <tr>
+      <th></th>
+      <th>Team (IOC code)</th>
+      <th>№</th>
+      <th>Unnamed: 2_level_1</th>
+      <th>Unnamed: 3_level_1</th>
+      <th>Unnamed: 4_level_1</th>
+      <th>Total</th>
+      <th>№</th>
+      <th>Unnamed: 7_level_1</th>
+      <th>Unnamed: 8_level_1</th>
+      <th>Unnamed: 9_level_1</th>
+      <th>Total</th>
+      <th>№</th>
+      <th>Unnamed: 12_level_1</th>
+      <th>Unnamed: 13_level_1</th>
+      <th>Unnamed: 14_level_1</th>
+      <th>Total</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Afghanistan (AFG)</td>
+      <td>14</td>
+      <td>0</td>
+      <td>0</td>
+      <td>2</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>14</td>
+      <td>0</td>
+      <td>0</td>
+      <td>2</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Algeria (ALG)</td>
+      <td>13</td>
+      <td>5</td>
+      <td>4</td>
+      <td>8</td>
+      <td>17</td>
+      <td>3</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>16</td>
+      <td>5</td>
+      <td>4</td>
+      <td>8</td>
+      <td>17</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Argentina (ARG)</td>
+      <td>24</td>
+      <td>21</td>
+      <td>25</td>
+      <td>28</td>
+      <td>74</td>
+      <td>19</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>43</td>
+      <td>21</td>
+      <td>25</td>
+      <td>28</td>
+      <td>74</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Armenia (ARM)</td>
+      <td>6</td>
+      <td>2</td>
+      <td>6</td>
+      <td>6</td>
+      <td>14</td>
+      <td>7</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>13</td>
+      <td>2</td>
+      <td>6</td>
+      <td>6</td>
+      <td>14</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Australasia (ANZ) [ANZ]</td>
+      <td>2</td>
+      <td>3</td>
+      <td>4</td>
+      <td>5</td>
+      <td>12</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>2</td>
+      <td>3</td>
+      <td>4</td>
+      <td>5</td>
+      <td>12</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>148</th>
+      <td>Zimbabwe (ZIM) [ZIM]</td>
+      <td>13</td>
+      <td>3</td>
+      <td>4</td>
+      <td>1</td>
+      <td>8</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>14</td>
+      <td>3</td>
+      <td>4</td>
+      <td>1</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <th>149</th>
+      <td>Independent Olympic Athletes (IOA) [IOA]</td>
+      <td>3</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>3</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>150</th>
+      <td>Independent Olympic Participants (IOP) [IOP]</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>2</td>
+      <td>3</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>2</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>151</th>
+      <td>Mixed team (ZZX) [ZZX]</td>
+      <td>3</td>
+      <td>8</td>
+      <td>5</td>
+      <td>4</td>
+      <td>17</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>3</td>
+      <td>8</td>
+      <td>5</td>
+      <td>4</td>
+      <td>17</td>
+    </tr>
+    <tr>
+      <th>152</th>
+      <td>Totals</td>
+      <td>28</td>
+      <td>5116</td>
+      <td>5081</td>
+      <td>5488</td>
+      <td>15685</td>
+      <td>23</td>
+      <td>1062</td>
+      <td>1059</td>
+      <td>1050</td>
+      <td>3171</td>
+      <td>51</td>
+      <td>6178</td>
+      <td>6140</td>
+      <td>6538</td>
+      <td>18856</td>
+    </tr>
+  </tbody>
+</table>
+<p>153 rows × 16 columns</p>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
 </div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
@@ -13606,7 +13940,7 @@ ModuleNotFoundError: No module named 'pandas'</code></pre>
 </div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">daily_report</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
@@ -13682,7 +14016,7 @@ Index([&#39;FIPS&#39;, &#39;Admin2&#39;, &#39;Province_State&#39;, &#39;Country_
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">daily_report</span><span class="o">.</span><span class="n">head</span><span class="p">()</span> <span class="c1"># n is default to 5</span>
@@ -13698,7 +14032,7 @@ Index([&#39;FIPS&#39;, &#39;Admin2&#39;, &#39;Province_State&#39;, &#39;Country_
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[9]:</div>
+    <div class="prompt output_prompt">Out[11]:</div>
 
 
 
@@ -13744,16 +14078,16 @@ Index([&#39;FIPS&#39;, &#39;Admin2&#39;, &#39;Province_State&#39;, &#39;Country_
       <td>NaN</td>
       <td>NaN</td>
       <td>Afghanistan</td>
-      <td>2020-10-22 04:24:27</td>
+      <td>2020-10-27 04:24:45</td>
       <td>33.93911</td>
       <td>67.709953</td>
-      <td>40510</td>
-      <td>1501</td>
-      <td>33824</td>
-      <td>5185.0</td>
+      <td>40937</td>
+      <td>1518</td>
+      <td>34150</td>
+      <td>5269.0</td>
       <td>Afghanistan</td>
-      <td>104.063001</td>
-      <td>3.705258</td>
+      <td>105.159889</td>
+      <td>3.708137</td>
     </tr>
     <tr>
       <th>1</th>
@@ -13761,16 +14095,16 @@ Index([&#39;FIPS&#39;, &#39;Admin2&#39;, &#39;Province_State&#39;, &#39;Country_
       <td>NaN</td>
       <td>NaN</td>
       <td>Albania</td>
-      <td>2020-10-22 04:24:27</td>
+      <td>2020-10-27 04:24:45</td>
       <td>41.15330</td>
       <td>20.168300</td>
-      <td>17948</td>
-      <td>462</td>
-      <td>10341</td>
-      <td>7145.0</td>
+      <td>19445</td>
+      <td>480</td>
+      <td>10705</td>
+      <td>8260.0</td>
       <td>Albania</td>
-      <td>623.670860</td>
-      <td>2.574103</td>
+      <td>675.689763</td>
+      <td>2.468501</td>
     </tr>
     <tr>
       <th>2</th>
@@ -13778,16 +14112,16 @@ Index([&#39;FIPS&#39;, &#39;Admin2&#39;, &#39;Province_State&#39;, &#39;Country_
       <td>NaN</td>
       <td>NaN</td>
       <td>Algeria</td>
-      <td>2020-10-22 04:24:27</td>
+      <td>2020-10-27 04:24:45</td>
       <td>28.03390</td>
       <td>1.659600</td>
-      <td>55081</td>
-      <td>1880</td>
-      <td>38482</td>
-      <td>14719.0</td>
+      <td>56419</td>
+      <td>1922</td>
+      <td>39273</td>
+      <td>15224.0</td>
       <td>Algeria</td>
-      <td>125.609327</td>
-      <td>3.413155</td>
+      <td>128.660566</td>
+      <td>3.406654</td>
     </tr>
     <tr>
       <th>3</th>
@@ -13795,16 +14129,16 @@ Index([&#39;FIPS&#39;, &#39;Admin2&#39;, &#39;Province_State&#39;, &#39;Country_
       <td>NaN</td>
       <td>NaN</td>
       <td>Andorra</td>
-      <td>2020-10-22 04:24:27</td>
+      <td>2020-10-27 04:24:45</td>
       <td>42.50630</td>
       <td>1.521800</td>
-      <td>3811</td>
-      <td>63</td>
-      <td>2470</td>
-      <td>1278.0</td>
+      <td>4325</td>
+      <td>72</td>
+      <td>2957</td>
+      <td>1296.0</td>
       <td>Andorra</td>
-      <td>4932.375591</td>
-      <td>1.653109</td>
+      <td>5597.618585</td>
+      <td>1.664740</td>
     </tr>
     <tr>
       <th>4</th>
@@ -13812,16 +14146,16 @@ Index([&#39;FIPS&#39;, &#39;Admin2&#39;, &#39;Province_State&#39;, &#39;Country_
       <td>NaN</td>
       <td>NaN</td>
       <td>Angola</td>
-      <td>2020-10-22 04:24:27</td>
+      <td>2020-10-27 04:24:45</td>
       <td>-11.20270</td>
       <td>17.873900</td>
-      <td>8338</td>
-      <td>255</td>
-      <td>3040</td>
-      <td>5043.0</td>
+      <td>9644</td>
+      <td>270</td>
+      <td>3530</td>
+      <td>5844.0</td>
       <td>Angola</td>
-      <td>25.369476</td>
-      <td>3.058287</td>
+      <td>29.343155</td>
+      <td>2.799668</td>
     </tr>
   </tbody>
 </table>
@@ -13843,7 +14177,7 @@ Index([&#39;FIPS&#39;, &#39;Admin2&#39;, &#39;Province_State&#39;, &#39;Country_
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">daily_report</span><span class="o">.</span><span class="n">tail</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
@@ -13859,7 +14193,7 @@ Index([&#39;FIPS&#39;, &#39;Admin2&#39;, &#39;Province_State&#39;, &#39;Country_
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[10]:</div>
+    <div class="prompt output_prompt">Out[12]:</div>
 
 
 
@@ -13905,16 +14239,16 @@ Index([&#39;FIPS&#39;, &#39;Admin2&#39;, &#39;Province_State&#39;, &#39;Country_
       <td>NaN</td>
       <td>NaN</td>
       <td>Yemen</td>
-      <td>2020-10-22 04:24:27</td>
+      <td>2020-10-27 04:24:45</td>
       <td>15.552727</td>
       <td>48.516388</td>
-      <td>2057</td>
-      <td>597</td>
-      <td>1344</td>
-      <td>116.0</td>
+      <td>2060</td>
+      <td>599</td>
+      <td>1360</td>
+      <td>101.0</td>
       <td>Yemen</td>
-      <td>6.896675</td>
-      <td>29.022849</td>
+      <td>6.906733</td>
+      <td>29.077670</td>
     </tr>
     <tr>
       <th>3956</th>
@@ -13922,16 +14256,16 @@ Index([&#39;FIPS&#39;, &#39;Admin2&#39;, &#39;Province_State&#39;, &#39;Country_
       <td>NaN</td>
       <td>NaN</td>
       <td>Zambia</td>
-      <td>2020-10-22 04:24:27</td>
+      <td>2020-10-27 04:24:45</td>
       <td>-13.133897</td>
       <td>27.849332</td>
-      <td>16000</td>
-      <td>346</td>
-      <td>15168</td>
-      <td>486.0</td>
+      <td>16200</td>
+      <td>348</td>
+      <td>15445</td>
+      <td>407.0</td>
       <td>Zambia</td>
-      <td>87.032410</td>
-      <td>2.162500</td>
+      <td>88.120315</td>
+      <td>2.148148</td>
     </tr>
     <tr>
       <th>3957</th>
@@ -13939,16 +14273,16 @@ Index([&#39;FIPS&#39;, &#39;Admin2&#39;, &#39;Province_State&#39;, &#39;Country_
       <td>NaN</td>
       <td>NaN</td>
       <td>Zimbabwe</td>
-      <td>2020-10-22 04:24:27</td>
+      <td>2020-10-27 04:24:45</td>
       <td>-19.015438</td>
       <td>29.154857</td>
-      <td>8215</td>
-      <td>236</td>
-      <td>7725</td>
-      <td>254.0</td>
+      <td>8303</td>
+      <td>242</td>
+      <td>7797</td>
+      <td>264.0</td>
       <td>Zimbabwe</td>
-      <td>55.271751</td>
-      <td>2.872794</td>
+      <td>55.863828</td>
+      <td>2.914609</td>
     </tr>
   </tbody>
 </table>
@@ -13970,7 +14304,7 @@ Index([&#39;FIPS&#39;, &#39;Admin2&#39;, &#39;Province_State&#39;, &#39;Country_
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">daily_report</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
@@ -13986,7 +14320,7 @@ Index([&#39;FIPS&#39;, &#39;Admin2&#39;, &#39;Province_State&#39;, &#39;Country_
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[11]:</div>
+    <div class="prompt output_prompt">Out[13]:</div>
 
 
 
@@ -14029,33 +14363,33 @@ Index([&#39;FIPS&#39;, &#39;Admin2&#39;, &#39;Province_State&#39;, &#39;Country_
       <td>3.958000e+03</td>
       <td>3958.000000</td>
       <td>3.958000e+03</td>
-      <td>3.955000e+03</td>
+      <td>3.954000e+03</td>
       <td>3877.000000</td>
-      <td>3915.000000</td>
+      <td>3914.000000</td>
     </tr>
     <tr>
       <th>mean</th>
       <td>32376.071144</td>
       <td>35.988073</td>
       <td>-72.314962</td>
-      <td>1.041616e+04</td>
-      <td>285.828196</td>
-      <td>7.104465e+03</td>
-      <td>3.026876e+03</td>
-      <td>2173.897952</td>
-      <td>2.178916</td>
+      <td>1.098635e+04</td>
+      <td>292.924962</td>
+      <td>7.377222e+03</td>
+      <td>3.319522e+03</td>
+      <td>2317.163268</td>
+      <td>2.132531</td>
     </tr>
     <tr>
       <th>std</th>
       <td>17974.010299</td>
       <td>12.899356</td>
       <td>53.156609</td>
-      <td>5.709807e+04</td>
-      <td>1750.848780</td>
-      <td>7.082881e+04</td>
-      <td>5.860850e+04</td>
-      <td>1627.088299</td>
-      <td>2.896543</td>
+      <td>6.007391e+04</td>
+      <td>1792.119280</td>
+      <td>7.358758e+04</td>
+      <td>6.192586e+04</td>
+      <td>1694.677076</td>
+      <td>2.714726</td>
     </tr>
     <tr>
       <th>min</th>
@@ -14065,7 +14399,7 @@ Index([&#39;FIPS&#39;, &#39;Admin2&#39;, &#39;Province_State&#39;, &#39;Country_
       <td>0.000000e+00</td>
       <td>0.000000</td>
       <td>0.000000e+00</td>
-      <td>-3.323354e+06</td>
+      <td>-3.460455e+06</td>
       <td>0.000000</td>
       <td>0.000000</td>
     </tr>
@@ -14074,48 +14408,48 @@ Index([&#39;FIPS&#39;, &#39;Admin2&#39;, &#39;Province_State&#39;, &#39;Country_
       <td>19051.000000</td>
       <td>33.269842</td>
       <td>-96.616867</td>
-      <td>2.202500e+02</td>
-      <td>2.000000</td>
+      <td>2.420000e+02</td>
+      <td>3.000000</td>
       <td>0.000000e+00</td>
-      <td>1.865000e+02</td>
-      <td>1002.899630</td>
-      <td>0.758295</td>
+      <td>2.030000e+02</td>
+      <td>1101.511018</td>
+      <td>0.769231</td>
     </tr>
     <tr>
       <th>50%</th>
       <td>30067.000000</td>
       <td>37.938993</td>
       <td>-86.879242</td>
-      <td>7.150000e+02</td>
-      <td>12.000000</td>
+      <td>7.605000e+02</td>
+      <td>13.000000</td>
       <td>0.000000e+00</td>
-      <td>6.140000e+02</td>
-      <td>1868.563542</td>
-      <td>1.609504</td>
+      <td>6.535000e+02</td>
+      <td>2028.776083</td>
+      <td>1.587302</td>
     </tr>
     <tr>
       <th>75%</th>
       <td>47037.000000</td>
       <td>42.160731</td>
       <td>-77.637860</td>
-      <td>2.943750e+03</td>
-      <td>59.000000</td>
+      <td>3.084000e+03</td>
+      <td>61.000000</td>
       <td>0.000000e+00</td>
-      <td>1.998000e+03</td>
-      <td>2990.809492</td>
-      <td>2.820880</td>
+      <td>2.116250e+03</td>
+      <td>3210.536183</td>
+      <td>2.768728</td>
     </tr>
     <tr>
       <th>max</th>
       <td>99999.000000</td>
       <td>71.706900</td>
       <td>178.065000</td>
-      <td>1.617658e+06</td>
-      <td>42633.000000</td>
-      <td>3.323354e+06</td>
-      <td>8.437230e+05</td>
-      <td>17076.167076</td>
-      <td>84.405671</td>
+      <td>1.648665e+06</td>
+      <td>43348.000000</td>
+      <td>3.460455e+06</td>
+      <td>1.046402e+06</td>
+      <td>17705.773956</td>
+      <td>81.422925</td>
     </tr>
   </tbody>
 </table>
@@ -14137,7 +14471,7 @@ Index([&#39;FIPS&#39;, &#39;Admin2&#39;, &#39;Province_State&#39;, &#39;Country_
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">daily_report</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
@@ -14172,10 +14506,10 @@ Data columns (total 14 columns):
  7   Confirmed            3958 non-null   int64  
  8   Deaths               3958 non-null   int64  
  9   Recovered            3958 non-null   int64  
- 10  Active               3955 non-null   float64
+ 10  Active               3954 non-null   float64
  11  Combined_Key         3958 non-null   object 
  12  Incidence_Rate       3877 non-null   float64
- 13  Case-Fatality_Ratio  3915 non-null   float64
+ 13  Case-Fatality_Ratio  3914 non-null   float64
 dtypes: float64(6), int64(3), object(5)
 memory usage: 433.0+ KB
 </pre>
@@ -14195,7 +14529,7 @@ memory usage: 433.0+ KB
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">daily_report</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;Combined_Key&#39;</span><span class="p">)</span>
@@ -14211,7 +14545,7 @@ memory usage: 433.0+ KB
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[13]:</div>
+    <div class="prompt output_prompt">Out[15]:</div>
 
 
 
@@ -14272,15 +14606,15 @@ memory usage: 433.0+ KB
       <td>NaN</td>
       <td>NaN</td>
       <td>Afghanistan</td>
-      <td>2020-10-22 04:24:27</td>
+      <td>2020-10-27 04:24:45</td>
       <td>33.939110</td>
       <td>67.709953</td>
-      <td>40510</td>
-      <td>1501</td>
-      <td>33824</td>
-      <td>5185.0</td>
-      <td>104.063001</td>
-      <td>3.705258</td>
+      <td>40937</td>
+      <td>1518</td>
+      <td>34150</td>
+      <td>5269.0</td>
+      <td>105.159889</td>
+      <td>3.708137</td>
     </tr>
     <tr>
       <th>Albania</th>
@@ -14288,15 +14622,15 @@ memory usage: 433.0+ KB
       <td>NaN</td>
       <td>NaN</td>
       <td>Albania</td>
-      <td>2020-10-22 04:24:27</td>
+      <td>2020-10-27 04:24:45</td>
       <td>41.153300</td>
       <td>20.168300</td>
-      <td>17948</td>
-      <td>462</td>
-      <td>10341</td>
-      <td>7145.0</td>
-      <td>623.670860</td>
-      <td>2.574103</td>
+      <td>19445</td>
+      <td>480</td>
+      <td>10705</td>
+      <td>8260.0</td>
+      <td>675.689763</td>
+      <td>2.468501</td>
     </tr>
     <tr>
       <th>Algeria</th>
@@ -14304,15 +14638,15 @@ memory usage: 433.0+ KB
       <td>NaN</td>
       <td>NaN</td>
       <td>Algeria</td>
-      <td>2020-10-22 04:24:27</td>
+      <td>2020-10-27 04:24:45</td>
       <td>28.033900</td>
       <td>1.659600</td>
-      <td>55081</td>
-      <td>1880</td>
-      <td>38482</td>
-      <td>14719.0</td>
-      <td>125.609327</td>
-      <td>3.413155</td>
+      <td>56419</td>
+      <td>1922</td>
+      <td>39273</td>
+      <td>15224.0</td>
+      <td>128.660566</td>
+      <td>3.406654</td>
     </tr>
     <tr>
       <th>Andorra</th>
@@ -14320,15 +14654,15 @@ memory usage: 433.0+ KB
       <td>NaN</td>
       <td>NaN</td>
       <td>Andorra</td>
-      <td>2020-10-22 04:24:27</td>
+      <td>2020-10-27 04:24:45</td>
       <td>42.506300</td>
       <td>1.521800</td>
-      <td>3811</td>
-      <td>63</td>
-      <td>2470</td>
-      <td>1278.0</td>
-      <td>4932.375591</td>
-      <td>1.653109</td>
+      <td>4325</td>
+      <td>72</td>
+      <td>2957</td>
+      <td>1296.0</td>
+      <td>5597.618585</td>
+      <td>1.664740</td>
     </tr>
     <tr>
       <th>Angola</th>
@@ -14336,15 +14670,15 @@ memory usage: 433.0+ KB
       <td>NaN</td>
       <td>NaN</td>
       <td>Angola</td>
-      <td>2020-10-22 04:24:27</td>
+      <td>2020-10-27 04:24:45</td>
       <td>-11.202700</td>
       <td>17.873900</td>
-      <td>8338</td>
-      <td>255</td>
-      <td>3040</td>
-      <td>5043.0</td>
-      <td>25.369476</td>
-      <td>3.058287</td>
+      <td>9644</td>
+      <td>270</td>
+      <td>3530</td>
+      <td>5844.0</td>
+      <td>29.343155</td>
+      <td>2.799668</td>
     </tr>
     <tr>
       <th>...</th>
@@ -14368,15 +14702,15 @@ memory usage: 433.0+ KB
       <td>NaN</td>
       <td>NaN</td>
       <td>West Bank and Gaza</td>
-      <td>2020-10-22 04:24:27</td>
+      <td>2020-10-27 04:24:45</td>
       <td>31.952200</td>
       <td>35.233200</td>
-      <td>48628</td>
-      <td>427</td>
-      <td>41935</td>
-      <td>6266.0</td>
-      <td>953.225536</td>
-      <td>0.878095</td>
+      <td>50952</td>
+      <td>454</td>
+      <td>44055</td>
+      <td>6443.0</td>
+      <td>998.781515</td>
+      <td>0.891035</td>
     </tr>
     <tr>
       <th>Western Sahara</th>
@@ -14384,7 +14718,7 @@ memory usage: 433.0+ KB
       <td>NaN</td>
       <td>NaN</td>
       <td>Western Sahara</td>
-      <td>2020-10-22 04:24:27</td>
+      <td>2020-10-27 04:24:45</td>
       <td>24.215500</td>
       <td>-12.885800</td>
       <td>10</td>
@@ -14400,15 +14734,15 @@ memory usage: 433.0+ KB
       <td>NaN</td>
       <td>NaN</td>
       <td>Yemen</td>
-      <td>2020-10-22 04:24:27</td>
+      <td>2020-10-27 04:24:45</td>
       <td>15.552727</td>
       <td>48.516388</td>
-      <td>2057</td>
-      <td>597</td>
-      <td>1344</td>
-      <td>116.0</td>
-      <td>6.896675</td>
-      <td>29.022849</td>
+      <td>2060</td>
+      <td>599</td>
+      <td>1360</td>
+      <td>101.0</td>
+      <td>6.906733</td>
+      <td>29.077670</td>
     </tr>
     <tr>
       <th>Zambia</th>
@@ -14416,15 +14750,15 @@ memory usage: 433.0+ KB
       <td>NaN</td>
       <td>NaN</td>
       <td>Zambia</td>
-      <td>2020-10-22 04:24:27</td>
+      <td>2020-10-27 04:24:45</td>
       <td>-13.133897</td>
       <td>27.849332</td>
-      <td>16000</td>
-      <td>346</td>
-      <td>15168</td>
-      <td>486.0</td>
-      <td>87.032410</td>
-      <td>2.162500</td>
+      <td>16200</td>
+      <td>348</td>
+      <td>15445</td>
+      <td>407.0</td>
+      <td>88.120315</td>
+      <td>2.148148</td>
     </tr>
     <tr>
       <th>Zimbabwe</th>
@@ -14432,15 +14766,15 @@ memory usage: 433.0+ KB
       <td>NaN</td>
       <td>NaN</td>
       <td>Zimbabwe</td>
-      <td>2020-10-22 04:24:27</td>
+      <td>2020-10-27 04:24:45</td>
       <td>-19.015438</td>
       <td>29.154857</td>
-      <td>8215</td>
-      <td>236</td>
-      <td>7725</td>
-      <td>254.0</td>
-      <td>55.271751</td>
-      <td>2.872794</td>
+      <td>8303</td>
+      <td>242</td>
+      <td>7797</td>
+      <td>264.0</td>
+      <td>55.863828</td>
+      <td>2.914609</td>
     </tr>
   </tbody>
 </table>
@@ -14463,7 +14797,7 @@ memory usage: 433.0+ KB
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="prompt input_prompt">In&nbsp;[16]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">daily_report</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;Combined_Key&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
@@ -14479,7 +14813,7 @@ memory usage: 433.0+ KB
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[14]:</div>
+    <div class="prompt output_prompt">Out[16]:</div>
 
 
 
@@ -14526,15 +14860,15 @@ memory usage: 433.0+ KB
       <td>NaN</td>
       <td>NaN</td>
       <td>Afghanistan</td>
-      <td>2020-10-22 04:24:27</td>
+      <td>2020-10-27 04:24:45</td>
       <td>33.939110</td>
       <td>67.709953</td>
-      <td>40510</td>
-      <td>1501</td>
-      <td>33824</td>
-      <td>5185.0</td>
-      <td>104.063001</td>
-      <td>3.705258</td>
+      <td>40937</td>
+      <td>1518</td>
+      <td>34150</td>
+      <td>5269.0</td>
+      <td>105.159889</td>
+      <td>3.708137</td>
     </tr>
     <tr>
       <th>1</th>
@@ -14543,15 +14877,15 @@ memory usage: 433.0+ KB
       <td>NaN</td>
       <td>NaN</td>
       <td>Albania</td>
-      <td>2020-10-22 04:24:27</td>
+      <td>2020-10-27 04:24:45</td>
       <td>41.153300</td>
       <td>20.168300</td>
-      <td>17948</td>
-      <td>462</td>
-      <td>10341</td>
-      <td>7145.0</td>
-      <td>623.670860</td>
-      <td>2.574103</td>
+      <td>19445</td>
+      <td>480</td>
+      <td>10705</td>
+      <td>8260.0</td>
+      <td>675.689763</td>
+      <td>2.468501</td>
     </tr>
     <tr>
       <th>2</th>
@@ -14560,15 +14894,15 @@ memory usage: 433.0+ KB
       <td>NaN</td>
       <td>NaN</td>
       <td>Algeria</td>
-      <td>2020-10-22 04:24:27</td>
+      <td>2020-10-27 04:24:45</td>
       <td>28.033900</td>
       <td>1.659600</td>
-      <td>55081</td>
-      <td>1880</td>
-      <td>38482</td>
-      <td>14719.0</td>
-      <td>125.609327</td>
-      <td>3.413155</td>
+      <td>56419</td>
+      <td>1922</td>
+      <td>39273</td>
+      <td>15224.0</td>
+      <td>128.660566</td>
+      <td>3.406654</td>
     </tr>
     <tr>
       <th>3</th>
@@ -14577,15 +14911,15 @@ memory usage: 433.0+ KB
       <td>NaN</td>
       <td>NaN</td>
       <td>Andorra</td>
-      <td>2020-10-22 04:24:27</td>
+      <td>2020-10-27 04:24:45</td>
       <td>42.506300</td>
       <td>1.521800</td>
-      <td>3811</td>
-      <td>63</td>
-      <td>2470</td>
-      <td>1278.0</td>
-      <td>4932.375591</td>
-      <td>1.653109</td>
+      <td>4325</td>
+      <td>72</td>
+      <td>2957</td>
+      <td>1296.0</td>
+      <td>5597.618585</td>
+      <td>1.664740</td>
     </tr>
     <tr>
       <th>4</th>
@@ -14594,15 +14928,15 @@ memory usage: 433.0+ KB
       <td>NaN</td>
       <td>NaN</td>
       <td>Angola</td>
-      <td>2020-10-22 04:24:27</td>
+      <td>2020-10-27 04:24:45</td>
       <td>-11.202700</td>
       <td>17.873900</td>
-      <td>8338</td>
-      <td>255</td>
-      <td>3040</td>
-      <td>5043.0</td>
-      <td>25.369476</td>
-      <td>3.058287</td>
+      <td>9644</td>
+      <td>270</td>
+      <td>3530</td>
+      <td>5844.0</td>
+      <td>29.343155</td>
+      <td>2.799668</td>
     </tr>
     <tr>
       <th>...</th>
@@ -14628,15 +14962,15 @@ memory usage: 433.0+ KB
       <td>NaN</td>
       <td>NaN</td>
       <td>West Bank and Gaza</td>
-      <td>2020-10-22 04:24:27</td>
+      <td>2020-10-27 04:24:45</td>
       <td>31.952200</td>
       <td>35.233200</td>
-      <td>48628</td>
-      <td>427</td>
-      <td>41935</td>
-      <td>6266.0</td>
-      <td>953.225536</td>
-      <td>0.878095</td>
+      <td>50952</td>
+      <td>454</td>
+      <td>44055</td>
+      <td>6443.0</td>
+      <td>998.781515</td>
+      <td>0.891035</td>
     </tr>
     <tr>
       <th>3954</th>
@@ -14645,7 +14979,7 @@ memory usage: 433.0+ KB
       <td>NaN</td>
       <td>NaN</td>
       <td>Western Sahara</td>
-      <td>2020-10-22 04:24:27</td>
+      <td>2020-10-27 04:24:45</td>
       <td>24.215500</td>
       <td>-12.885800</td>
       <td>10</td>
@@ -14662,15 +14996,15 @@ memory usage: 433.0+ KB
       <td>NaN</td>
       <td>NaN</td>
       <td>Yemen</td>
-      <td>2020-10-22 04:24:27</td>
+      <td>2020-10-27 04:24:45</td>
       <td>15.552727</td>
       <td>48.516388</td>
-      <td>2057</td>
-      <td>597</td>
-      <td>1344</td>
-      <td>116.0</td>
-      <td>6.896675</td>
-      <td>29.022849</td>
+      <td>2060</td>
+      <td>599</td>
+      <td>1360</td>
+      <td>101.0</td>
+      <td>6.906733</td>
+      <td>29.077670</td>
     </tr>
     <tr>
       <th>3956</th>
@@ -14679,15 +15013,15 @@ memory usage: 433.0+ KB
       <td>NaN</td>
       <td>NaN</td>
       <td>Zambia</td>
-      <td>2020-10-22 04:24:27</td>
+      <td>2020-10-27 04:24:45</td>
       <td>-13.133897</td>
       <td>27.849332</td>
-      <td>16000</td>
-      <td>346</td>
-      <td>15168</td>
-      <td>486.0</td>
-      <td>87.032410</td>
-      <td>2.162500</td>
+      <td>16200</td>
+      <td>348</td>
+      <td>15445</td>
+      <td>407.0</td>
+      <td>88.120315</td>
+      <td>2.148148</td>
     </tr>
     <tr>
       <th>3957</th>
@@ -14696,15 +15030,15 @@ memory usage: 433.0+ KB
       <td>NaN</td>
       <td>NaN</td>
       <td>Zimbabwe</td>
-      <td>2020-10-22 04:24:27</td>
+      <td>2020-10-27 04:24:45</td>
       <td>-19.015438</td>
       <td>29.154857</td>
-      <td>8215</td>
-      <td>236</td>
-      <td>7725</td>
-      <td>254.0</td>
-      <td>55.271751</td>
-      <td>2.872794</td>
+      <td>8303</td>
+      <td>242</td>
+      <td>7797</td>
+      <td>264.0</td>
+      <td>55.863828</td>
+      <td>2.914609</td>
     </tr>
   </tbody>
 </table>
@@ -14751,7 +15085,7 @@ memory usage: 433.0+ KB
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="prompt input_prompt">In&nbsp;[17]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">daily_report</span><span class="p">[</span><span class="s1">&#39;Country_Region&#39;</span><span class="p">])</span>
@@ -14802,7 +15136,7 @@ Name: Country_Region, Length: 3958, dtype: object
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[16]:</div>
+<div class="prompt input_prompt">In&nbsp;[18]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">daily_report</span><span class="p">[[</span><span class="s1">&#39;Country_Region&#39;</span><span class="p">]]))</span>
@@ -14830,7 +15164,7 @@ Name: Country_Region, Length: 3958, dtype: object
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[16]:</div>
+    <div class="prompt output_prompt">Out[18]:</div>
 
 
 
@@ -14922,7 +15256,7 @@ Name: Country_Region, Length: 3958, dtype: object
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[17]:</div>
+<div class="prompt input_prompt">In&nbsp;[19]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">cols</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Country_Region&#39;</span><span class="p">,</span> <span class="s1">&#39;Province_State&#39;</span><span class="p">]</span>
@@ -14939,7 +15273,7 @@ Name: Country_Region, Length: 3958, dtype: object
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[17]:</div>
+    <div class="prompt output_prompt">Out[19]:</div>
 
 
 
@@ -15043,7 +15377,7 @@ Name: Country_Region, Length: 3958, dtype: object
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[18]:</div>
+<div class="prompt input_prompt">In&nbsp;[20]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">is_taiwan</span> <span class="o">=</span> <span class="n">daily_report</span><span class="p">[</span><span class="s1">&#39;Country_Region&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Taiwan*&#39;</span>
@@ -15060,7 +15394,7 @@ Name: Country_Region, Length: 3958, dtype: object
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[18]:</div>
+    <div class="prompt output_prompt">Out[20]:</div>
 
 
 
@@ -15106,16 +15440,16 @@ Name: Country_Region, Length: 3958, dtype: object
       <td>NaN</td>
       <td>NaN</td>
       <td>Taiwan*</td>
-      <td>2020-10-22 04:24:27</td>
+      <td>2020-10-27 04:24:45</td>
       <td>23.7</td>
       <td>121.0</td>
-      <td>544</td>
+      <td>550</td>
       <td>7</td>
-      <td>495</td>
-      <td>42.0</td>
+      <td>502</td>
+      <td>41.0</td>
       <td>Taiwan*</td>
-      <td>2.284104</td>
-      <td>1.286765</td>
+      <td>2.309297</td>
+      <td>1.272727</td>
     </tr>
   </tbody>
 </table>
@@ -15137,7 +15471,7 @@ Name: Country_Region, Length: 3958, dtype: object
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[19]:</div>
+<div class="prompt input_prompt">In&nbsp;[21]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">cols_to_select</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Country_Region&#39;</span><span class="p">,</span> <span class="s1">&#39;Confirmed&#39;</span><span class="p">]</span>
@@ -15152,183 +15486,6 @@ Name: Country_Region, Length: 3958, dtype: object
 <div class="output_wrapper">
 <div class="output">
 
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[19]:</div>
-
-
-
-<div class="output_html rendered_html output_subarea output_execute_result">
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Country_Region</th>
-      <th>Confirmed</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>624</th>
-      <td>Taiwan*</td>
-      <td>544</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div></section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Indexing-DataFrame-with">Indexing <code>DataFrame</code> with<a class="anchor-link" href="#Indexing-DataFrame-with">&#182;</a></h2><ul>
-<li><code>loc[]</code></li>
-<li><code>iloc[]</code></li>
-</ul>
-
-</div>
-</div>
-</div></section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="loc[]-is-indexing-DataFrame-with-Index"><code>loc[]</code> is indexing <code>DataFrame</code> with <code>Index</code><a class="anchor-link" href="#loc[]-is-indexing-DataFrame-with-Index">&#182;</a></h2>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[20]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">daily_report</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">3388</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;Country_Region&#39;</span><span class="p">,</span> <span class="s1">&#39;Confirmed&#39;</span><span class="p">]])</span> <span class="c1"># as Series</span>
-<span class="n">daily_report</span><span class="o">.</span><span class="n">loc</span><span class="p">[[</span><span class="mi">3388</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;Country_Region&#39;</span><span class="p">,</span> <span class="s1">&#39;Confirmed&#39;</span><span class="p">]]</span> <span class="c1"># as DataFrame</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Country_Region    US
-Confirmed         41
-Name: 3388, dtype: object
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[20]:</div>
-
-
-
-<div class="output_html rendered_html output_subarea output_execute_result">
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Country_Region</th>
-      <th>Confirmed</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>3388</th>
-      <td>US</td>
-      <td>41</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div></section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="iloc[]-is-indexing-DataFrame-with-absolute-position"><code>iloc[]</code> is indexing <code>DataFrame</code> with absolute position<a class="anchor-link" href="#iloc[]-is-indexing-DataFrame-with-absolute-position">&#182;</a></h2>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[21]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">daily_report</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">3388</span><span class="p">,</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">]])</span> <span class="c1"># as Series</span>
-<span class="n">daily_report</span><span class="o">.</span><span class="n">iloc</span><span class="p">[[</span><span class="mi">3388</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">]]</span> <span class="c1"># as DataFrame</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Country_Region    US
-Confirmed         41
-Name: 3388, dtype: object
-</pre>
-</div>
-</div>
 
 <div class="output_area">
 
@@ -15361,9 +15518,186 @@ Name: 3388, dtype: object
   </thead>
   <tbody>
     <tr>
+      <th>624</th>
+      <td>Taiwan*</td>
+      <td>550</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Indexing-DataFrame-with">Indexing <code>DataFrame</code> with<a class="anchor-link" href="#Indexing-DataFrame-with">&#182;</a></h2><ul>
+<li><code>loc[]</code></li>
+<li><code>iloc[]</code></li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="loc[]-is-indexing-DataFrame-with-Index"><code>loc[]</code> is indexing <code>DataFrame</code> with <code>Index</code><a class="anchor-link" href="#loc[]-is-indexing-DataFrame-with-Index">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[22]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">daily_report</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">3388</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;Country_Region&#39;</span><span class="p">,</span> <span class="s1">&#39;Confirmed&#39;</span><span class="p">]])</span> <span class="c1"># as Series</span>
+<span class="n">daily_report</span><span class="o">.</span><span class="n">loc</span><span class="p">[[</span><span class="mi">3388</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;Country_Region&#39;</span><span class="p">,</span> <span class="s1">&#39;Confirmed&#39;</span><span class="p">]]</span> <span class="c1"># as DataFrame</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Country_Region    US
+Confirmed         45
+Name: 3388, dtype: object
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[22]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Country_Region</th>
+      <th>Confirmed</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
       <th>3388</th>
       <td>US</td>
-      <td>41</td>
+      <td>45</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="iloc[]-is-indexing-DataFrame-with-absolute-position"><code>iloc[]</code> is indexing <code>DataFrame</code> with absolute position<a class="anchor-link" href="#iloc[]-is-indexing-DataFrame-with-absolute-position">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[23]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">daily_report</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">3388</span><span class="p">,</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">]])</span> <span class="c1"># as Series</span>
+<span class="n">daily_report</span><span class="o">.</span><span class="n">iloc</span><span class="p">[[</span><span class="mi">3388</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">]]</span> <span class="c1"># as DataFrame</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Country_Region    US
+Confirmed         45
+Name: 3388, dtype: object
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[23]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Country_Region</th>
+      <th>Confirmed</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>3388</th>
+      <td>US</td>
+      <td>45</td>
     </tr>
   </tbody>
 </table>
@@ -15396,7 +15730,7 @@ Name: 3388, dtype: object
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[22]:</div>
+<div class="prompt input_prompt">In&nbsp;[24]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">daily_report</span><span class="o">.</span><span class="n">sort_values</span><span class="p">([</span><span class="s1">&#39;Country_Region&#39;</span><span class="p">,</span> <span class="s1">&#39;Confirmed&#39;</span><span class="p">])</span>
@@ -15412,7 +15746,7 @@ Name: 3388, dtype: object
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[22]:</div>
+    <div class="prompt output_prompt">Out[24]:</div>
 
 
 
@@ -15458,16 +15792,16 @@ Name: 3388, dtype: object
       <td>NaN</td>
       <td>NaN</td>
       <td>Afghanistan</td>
-      <td>2020-10-22 04:24:27</td>
+      <td>2020-10-27 04:24:45</td>
       <td>33.939110</td>
       <td>67.709953</td>
-      <td>40510</td>
-      <td>1501</td>
-      <td>33824</td>
-      <td>5185.0</td>
+      <td>40937</td>
+      <td>1518</td>
+      <td>34150</td>
+      <td>5269.0</td>
       <td>Afghanistan</td>
-      <td>104.063001</td>
-      <td>3.705258</td>
+      <td>105.159889</td>
+      <td>3.708137</td>
     </tr>
     <tr>
       <th>1</th>
@@ -15475,16 +15809,16 @@ Name: 3388, dtype: object
       <td>NaN</td>
       <td>NaN</td>
       <td>Albania</td>
-      <td>2020-10-22 04:24:27</td>
+      <td>2020-10-27 04:24:45</td>
       <td>41.153300</td>
       <td>20.168300</td>
-      <td>17948</td>
-      <td>462</td>
-      <td>10341</td>
-      <td>7145.0</td>
+      <td>19445</td>
+      <td>480</td>
+      <td>10705</td>
+      <td>8260.0</td>
       <td>Albania</td>
-      <td>623.670860</td>
-      <td>2.574103</td>
+      <td>675.689763</td>
+      <td>2.468501</td>
     </tr>
     <tr>
       <th>2</th>
@@ -15492,16 +15826,16 @@ Name: 3388, dtype: object
       <td>NaN</td>
       <td>NaN</td>
       <td>Algeria</td>
-      <td>2020-10-22 04:24:27</td>
+      <td>2020-10-27 04:24:45</td>
       <td>28.033900</td>
       <td>1.659600</td>
-      <td>55081</td>
-      <td>1880</td>
-      <td>38482</td>
-      <td>14719.0</td>
+      <td>56419</td>
+      <td>1922</td>
+      <td>39273</td>
+      <td>15224.0</td>
       <td>Algeria</td>
-      <td>125.609327</td>
-      <td>3.413155</td>
+      <td>128.660566</td>
+      <td>3.406654</td>
     </tr>
     <tr>
       <th>3</th>
@@ -15509,16 +15843,16 @@ Name: 3388, dtype: object
       <td>NaN</td>
       <td>NaN</td>
       <td>Andorra</td>
-      <td>2020-10-22 04:24:27</td>
+      <td>2020-10-27 04:24:45</td>
       <td>42.506300</td>
       <td>1.521800</td>
-      <td>3811</td>
-      <td>63</td>
-      <td>2470</td>
-      <td>1278.0</td>
+      <td>4325</td>
+      <td>72</td>
+      <td>2957</td>
+      <td>1296.0</td>
       <td>Andorra</td>
-      <td>4932.375591</td>
-      <td>1.653109</td>
+      <td>5597.618585</td>
+      <td>1.664740</td>
     </tr>
     <tr>
       <th>4</th>
@@ -15526,16 +15860,16 @@ Name: 3388, dtype: object
       <td>NaN</td>
       <td>NaN</td>
       <td>Angola</td>
-      <td>2020-10-22 04:24:27</td>
+      <td>2020-10-27 04:24:45</td>
       <td>-11.202700</td>
       <td>17.873900</td>
-      <td>8338</td>
-      <td>255</td>
-      <td>3040</td>
-      <td>5043.0</td>
+      <td>9644</td>
+      <td>270</td>
+      <td>3530</td>
+      <td>5844.0</td>
       <td>Angola</td>
-      <td>25.369476</td>
-      <td>3.058287</td>
+      <td>29.343155</td>
+      <td>2.799668</td>
     </tr>
     <tr>
       <th>...</th>
@@ -15560,16 +15894,16 @@ Name: 3388, dtype: object
       <td>NaN</td>
       <td>NaN</td>
       <td>West Bank and Gaza</td>
-      <td>2020-10-22 04:24:27</td>
+      <td>2020-10-27 04:24:45</td>
       <td>31.952200</td>
       <td>35.233200</td>
-      <td>48628</td>
-      <td>427</td>
-      <td>41935</td>
-      <td>6266.0</td>
+      <td>50952</td>
+      <td>454</td>
+      <td>44055</td>
+      <td>6443.0</td>
       <td>West Bank and Gaza</td>
-      <td>953.225536</td>
-      <td>0.878095</td>
+      <td>998.781515</td>
+      <td>0.891035</td>
     </tr>
     <tr>
       <th>3954</th>
@@ -15577,7 +15911,7 @@ Name: 3388, dtype: object
       <td>NaN</td>
       <td>NaN</td>
       <td>Western Sahara</td>
-      <td>2020-10-22 04:24:27</td>
+      <td>2020-10-27 04:24:45</td>
       <td>24.215500</td>
       <td>-12.885800</td>
       <td>10</td>
@@ -15594,16 +15928,16 @@ Name: 3388, dtype: object
       <td>NaN</td>
       <td>NaN</td>
       <td>Yemen</td>
-      <td>2020-10-22 04:24:27</td>
+      <td>2020-10-27 04:24:45</td>
       <td>15.552727</td>
       <td>48.516388</td>
-      <td>2057</td>
-      <td>597</td>
-      <td>1344</td>
-      <td>116.0</td>
+      <td>2060</td>
+      <td>599</td>
+      <td>1360</td>
+      <td>101.0</td>
       <td>Yemen</td>
-      <td>6.896675</td>
-      <td>29.022849</td>
+      <td>6.906733</td>
+      <td>29.077670</td>
     </tr>
     <tr>
       <th>3956</th>
@@ -15611,16 +15945,16 @@ Name: 3388, dtype: object
       <td>NaN</td>
       <td>NaN</td>
       <td>Zambia</td>
-      <td>2020-10-22 04:24:27</td>
+      <td>2020-10-27 04:24:45</td>
       <td>-13.133897</td>
       <td>27.849332</td>
-      <td>16000</td>
-      <td>346</td>
-      <td>15168</td>
-      <td>486.0</td>
+      <td>16200</td>
+      <td>348</td>
+      <td>15445</td>
+      <td>407.0</td>
       <td>Zambia</td>
-      <td>87.032410</td>
-      <td>2.162500</td>
+      <td>88.120315</td>
+      <td>2.148148</td>
     </tr>
     <tr>
       <th>3957</th>
@@ -15628,16 +15962,16 @@ Name: 3388, dtype: object
       <td>NaN</td>
       <td>NaN</td>
       <td>Zimbabwe</td>
-      <td>2020-10-22 04:24:27</td>
+      <td>2020-10-27 04:24:45</td>
       <td>-19.015438</td>
       <td>29.154857</td>
-      <td>8215</td>
-      <td>236</td>
-      <td>7725</td>
-      <td>254.0</td>
+      <td>8303</td>
+      <td>242</td>
+      <td>7797</td>
+      <td>264.0</td>
       <td>Zimbabwe</td>
-      <td>55.271751</td>
-      <td>2.872794</td>
+      <td>55.863828</td>
+      <td>2.914609</td>
     </tr>
   </tbody>
 </table>
@@ -15660,7 +15994,7 @@ Name: 3388, dtype: object
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[23]:</div>
+<div class="prompt input_prompt">In&nbsp;[25]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">daily_report</span><span class="o">.</span><span class="n">sort_index</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
@@ -15676,7 +16010,7 @@ Name: 3388, dtype: object
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[23]:</div>
+    <div class="prompt output_prompt">Out[25]:</div>
 
 
 
@@ -15722,16 +16056,16 @@ Name: 3388, dtype: object
       <td>NaN</td>
       <td>NaN</td>
       <td>Zimbabwe</td>
-      <td>2020-10-22 04:24:27</td>
+      <td>2020-10-27 04:24:45</td>
       <td>-19.015438</td>
       <td>29.154857</td>
-      <td>8215</td>
-      <td>236</td>
-      <td>7725</td>
-      <td>254.0</td>
+      <td>8303</td>
+      <td>242</td>
+      <td>7797</td>
+      <td>264.0</td>
       <td>Zimbabwe</td>
-      <td>55.271751</td>
-      <td>2.872794</td>
+      <td>55.863828</td>
+      <td>2.914609</td>
     </tr>
     <tr>
       <th>3956</th>
@@ -15739,16 +16073,16 @@ Name: 3388, dtype: object
       <td>NaN</td>
       <td>NaN</td>
       <td>Zambia</td>
-      <td>2020-10-22 04:24:27</td>
+      <td>2020-10-27 04:24:45</td>
       <td>-13.133897</td>
       <td>27.849332</td>
-      <td>16000</td>
-      <td>346</td>
-      <td>15168</td>
-      <td>486.0</td>
+      <td>16200</td>
+      <td>348</td>
+      <td>15445</td>
+      <td>407.0</td>
       <td>Zambia</td>
-      <td>87.032410</td>
-      <td>2.162500</td>
+      <td>88.120315</td>
+      <td>2.148148</td>
     </tr>
     <tr>
       <th>3955</th>
@@ -15756,16 +16090,16 @@ Name: 3388, dtype: object
       <td>NaN</td>
       <td>NaN</td>
       <td>Yemen</td>
-      <td>2020-10-22 04:24:27</td>
+      <td>2020-10-27 04:24:45</td>
       <td>15.552727</td>
       <td>48.516388</td>
-      <td>2057</td>
-      <td>597</td>
-      <td>1344</td>
-      <td>116.0</td>
+      <td>2060</td>
+      <td>599</td>
+      <td>1360</td>
+      <td>101.0</td>
       <td>Yemen</td>
-      <td>6.896675</td>
-      <td>29.022849</td>
+      <td>6.906733</td>
+      <td>29.077670</td>
     </tr>
     <tr>
       <th>3954</th>
@@ -15773,7 +16107,7 @@ Name: 3388, dtype: object
       <td>NaN</td>
       <td>NaN</td>
       <td>Western Sahara</td>
-      <td>2020-10-22 04:24:27</td>
+      <td>2020-10-27 04:24:45</td>
       <td>24.215500</td>
       <td>-12.885800</td>
       <td>10</td>
@@ -15790,16 +16124,16 @@ Name: 3388, dtype: object
       <td>NaN</td>
       <td>NaN</td>
       <td>West Bank and Gaza</td>
-      <td>2020-10-22 04:24:27</td>
+      <td>2020-10-27 04:24:45</td>
       <td>31.952200</td>
       <td>35.233200</td>
-      <td>48628</td>
-      <td>427</td>
-      <td>41935</td>
-      <td>6266.0</td>
+      <td>50952</td>
+      <td>454</td>
+      <td>44055</td>
+      <td>6443.0</td>
       <td>West Bank and Gaza</td>
-      <td>953.225536</td>
-      <td>0.878095</td>
+      <td>998.781515</td>
+      <td>0.891035</td>
     </tr>
     <tr>
       <th>...</th>
@@ -15824,16 +16158,16 @@ Name: 3388, dtype: object
       <td>NaN</td>
       <td>NaN</td>
       <td>Angola</td>
-      <td>2020-10-22 04:24:27</td>
+      <td>2020-10-27 04:24:45</td>
       <td>-11.202700</td>
       <td>17.873900</td>
-      <td>8338</td>
-      <td>255</td>
-      <td>3040</td>
-      <td>5043.0</td>
+      <td>9644</td>
+      <td>270</td>
+      <td>3530</td>
+      <td>5844.0</td>
       <td>Angola</td>
-      <td>25.369476</td>
-      <td>3.058287</td>
+      <td>29.343155</td>
+      <td>2.799668</td>
     </tr>
     <tr>
       <th>3</th>
@@ -15841,16 +16175,16 @@ Name: 3388, dtype: object
       <td>NaN</td>
       <td>NaN</td>
       <td>Andorra</td>
-      <td>2020-10-22 04:24:27</td>
+      <td>2020-10-27 04:24:45</td>
       <td>42.506300</td>
       <td>1.521800</td>
-      <td>3811</td>
-      <td>63</td>
-      <td>2470</td>
-      <td>1278.0</td>
+      <td>4325</td>
+      <td>72</td>
+      <td>2957</td>
+      <td>1296.0</td>
       <td>Andorra</td>
-      <td>4932.375591</td>
-      <td>1.653109</td>
+      <td>5597.618585</td>
+      <td>1.664740</td>
     </tr>
     <tr>
       <th>2</th>
@@ -15858,16 +16192,16 @@ Name: 3388, dtype: object
       <td>NaN</td>
       <td>NaN</td>
       <td>Algeria</td>
-      <td>2020-10-22 04:24:27</td>
+      <td>2020-10-27 04:24:45</td>
       <td>28.033900</td>
       <td>1.659600</td>
-      <td>55081</td>
-      <td>1880</td>
-      <td>38482</td>
-      <td>14719.0</td>
+      <td>56419</td>
+      <td>1922</td>
+      <td>39273</td>
+      <td>15224.0</td>
       <td>Algeria</td>
-      <td>125.609327</td>
-      <td>3.413155</td>
+      <td>128.660566</td>
+      <td>3.406654</td>
     </tr>
     <tr>
       <th>1</th>
@@ -15875,16 +16209,16 @@ Name: 3388, dtype: object
       <td>NaN</td>
       <td>NaN</td>
       <td>Albania</td>
-      <td>2020-10-22 04:24:27</td>
+      <td>2020-10-27 04:24:45</td>
       <td>41.153300</td>
       <td>20.168300</td>
-      <td>17948</td>
-      <td>462</td>
-      <td>10341</td>
-      <td>7145.0</td>
+      <td>19445</td>
+      <td>480</td>
+      <td>10705</td>
+      <td>8260.0</td>
       <td>Albania</td>
-      <td>623.670860</td>
-      <td>2.574103</td>
+      <td>675.689763</td>
+      <td>2.468501</td>
     </tr>
     <tr>
       <th>0</th>
@@ -15892,16 +16226,16 @@ Name: 3388, dtype: object
       <td>NaN</td>
       <td>NaN</td>
       <td>Afghanistan</td>
-      <td>2020-10-22 04:24:27</td>
+      <td>2020-10-27 04:24:45</td>
       <td>33.939110</td>
       <td>67.709953</td>
-      <td>40510</td>
-      <td>1501</td>
-      <td>33824</td>
-      <td>5185.0</td>
+      <td>40937</td>
+      <td>1518</td>
+      <td>34150</td>
+      <td>5269.0</td>
       <td>Afghanistan</td>
-      <td>104.063001</td>
-      <td>3.705258</td>
+      <td>105.159889</td>
+      <td>3.708137</td>
     </tr>
   </tbody>
 </table>
@@ -15937,7 +16271,7 @@ Name: 3388, dtype: object
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[24]:</div>
+<div class="prompt input_prompt">In&nbsp;[26]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">active</span> <span class="o">=</span> <span class="n">daily_report</span><span class="p">[</span><span class="s1">&#39;Confirmed&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">daily_report</span><span class="p">[</span><span class="s1">&#39;Deaths&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">daily_report</span><span class="p">[</span><span class="s1">&#39;Recovered&#39;</span><span class="p">]</span>
@@ -15958,17 +16292,17 @@ Name: 3388, dtype: object
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>0        5185
-1        7145
-2       14719
-3        1278
-4        5043
+<pre>0        5269
+1        8260
+2       15224
+3        1296
+4        5844
         ...  
-3953     6266
+3953     6443
 3954        1
-3955      116
-3956      486
-3957      254
+3955      101
+3956      407
+3957      264
 Length: 3958, dtype: int64
 </pre>
 </div>
@@ -15987,7 +16321,7 @@ Length: 3958, dtype: int64
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[25]:</div>
+<div class="prompt input_prompt">In&nbsp;[27]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -16046,7 +16380,7 @@ Categories (4, object): [&#39;Less than 1000&#39; &lt; &#39;Between 1000 and 100
 </div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[26]:</div>
+<div class="prompt input_prompt">In&nbsp;[28]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Passing a dict</span>
@@ -16067,7 +16401,7 @@ Categories (4, object): [&#39;Less than 1000&#39; &lt; &#39;Between 1000 and 100
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[26]:</div>
+    <div class="prompt output_prompt">Out[28]:</div>
 
 
 
@@ -16085,7 +16419,7 @@ Name: Country_Region, dtype: object</pre>
 </div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[27]:</div>
+<div class="prompt input_prompt">In&nbsp;[29]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Passing a function</span>
@@ -16107,7 +16441,7 @@ Name: Country_Region, dtype: object</pre>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[27]:</div>
+    <div class="prompt output_prompt">Out[29]:</div>
 
 
 
@@ -16135,7 +16469,7 @@ Name: Country_Region, Length: 3958, dtype: object</pre>
 </div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[28]:</div>
+<div class="prompt input_prompt">In&nbsp;[30]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Passing a lambda expression)</span>
@@ -16152,7 +16486,7 @@ Name: Country_Region, Length: 3958, dtype: object</pre>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[28]:</div>
+    <div class="prompt output_prompt">Out[30]:</div>
 
 
 
@@ -16187,7 +16521,7 @@ Name: Country_Region, Length: 3958, dtype: object</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[29]:</div>
+<div class="prompt input_prompt">In&nbsp;[31]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">daily_report</span><span class="p">[</span><span class="s1">&#39;Confirmed&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
@@ -16203,13 +16537,13 @@ Name: Country_Region, Length: 3958, dtype: object</pre>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[29]:</div>
+    <div class="prompt output_prompt">Out[31]:</div>
 
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>41227176</pre>
+<pre>43483973</pre>
 </div>
 
 </div>
@@ -16227,7 +16561,7 @@ Name: Country_Region, Length: 3958, dtype: object</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[30]:</div>
+<div class="prompt input_prompt">In&nbsp;[32]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">daily_report</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;Country_Region&#39;</span><span class="p">)[</span><span class="s1">&#39;Confirmed&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
@@ -16243,24 +16577,24 @@ Name: Country_Region, Length: 3958, dtype: object</pre>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[30]:</div>
+    <div class="prompt output_prompt">Out[32]:</div>
 
 
 
 
 <div class="output_text output_subarea output_execute_result">
 <pre>Country_Region
-Afghanistan           40510
-Albania               17948
-Algeria               55081
-Andorra                3811
-Angola                 8338
+Afghanistan           40937
+Albania               19445
+Algeria               56419
+Andorra                4325
+Angola                 9644
                       ...  
-West Bank and Gaza    48628
+West Bank and Gaza    50952
 Western Sahara           10
-Yemen                  2057
-Zambia                16000
-Zimbabwe               8215
+Yemen                  2060
+Zambia                16200
+Zimbabwe               8303
 Name: Confirmed, Length: 189, dtype: int64</pre>
 </div>
 
@@ -16304,7 +16638,7 @@ Name: Confirmed, Length: 189, dtype: int64</pre>
 </div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[31]:</div>
+<div class="prompt input_prompt">In&nbsp;[33]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">daily_report</span><span class="p">[</span><span class="s1">&#39;Province_State&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">size</span><span class="p">)</span>
@@ -16339,7 +16673,7 @@ Name: Confirmed, Length: 189, dtype: int64</pre>
 </div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[32]:</div>
+<div class="prompt input_prompt">In&nbsp;[34]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">daily_report</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
@@ -16391,7 +16725,7 @@ Name: FIPS, Length: 3958, dtype: float64
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[33]:</div>
+<div class="prompt input_prompt">In&nbsp;[35]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">daily_report</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
@@ -16426,10 +16760,10 @@ Data columns (total 14 columns):
  7   Confirmed            3958 non-null   int64  
  8   Deaths               3958 non-null   int64  
  9   Recovered            3958 non-null   int64  
- 10  Active               3955 non-null   float64
+ 10  Active               3954 non-null   float64
  11  Combined_Key         3958 non-null   object 
  12  Incidence_Rate       3877 non-null   float64
- 13  Case-Fatality_Ratio  3915 non-null   float64
+ 13  Case-Fatality_Ratio  3914 non-null   float64
 dtypes: float64(6), int64(3), object(5)
 memory usage: 433.0+ KB
 </pre>
@@ -16449,7 +16783,7 @@ memory usage: 433.0+ KB
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[34]:</div>
+<div class="prompt input_prompt">In&nbsp;[36]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">daily_report</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
@@ -16487,10 +16821,10 @@ Data columns (total 14 columns):
  7   Confirmed            3958 non-null   int64  
  8   Deaths               3958 non-null   int64  
  9   Recovered            3958 non-null   int64  
- 10  Active               3955 non-null   float64
+ 10  Active               3954 non-null   float64
  11  Combined_Key         3958 non-null   string 
  12  Incidence_Rate       3877 non-null   float64
- 13  Case-Fatality_Ratio  3915 non-null   float64
+ 13  Case-Fatality_Ratio  3914 non-null   float64
 dtypes: float64(6), int64(3), string(5)
 memory usage: 433.0 KB
 </pre>
@@ -16510,7 +16844,7 @@ memory usage: 433.0 KB
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[35]:</div>
+<div class="prompt input_prompt">In&nbsp;[37]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">split_pattern</span> <span class="o">=</span> <span class="s1">&#39;, &#39;</span>
@@ -16527,7 +16861,7 @@ memory usage: 433.0 KB
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[35]:</div>
+    <div class="prompt output_prompt">Out[37]:</div>
 
 
 
@@ -16562,7 +16896,7 @@ Name: Combined_Key, Length: 3958, dtype: object</pre>
 </div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[36]:</div>
+<div class="prompt input_prompt">In&nbsp;[38]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">split_pattern</span> <span class="o">=</span> <span class="s1">&#39;, &#39;</span>
@@ -16579,7 +16913,7 @@ Name: Combined_Key, Length: 3958, dtype: object</pre>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[36]:</div>
+    <div class="prompt output_prompt">Out[38]:</div>
 
 
 
@@ -16695,7 +17029,7 @@ Name: Combined_Key, Length: 3958, dtype: object</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[37]:</div>
+<div class="prompt input_prompt">In&nbsp;[39]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">split_key</span> <span class="o">=</span> <span class="n">daily_report</span><span class="p">[</span><span class="s1">&#39;Combined_Key&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">split_pattern</span><span class="p">,</span> <span class="n">expand</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -16734,7 +17068,7 @@ Name: Combined_Key, Length: 3958, dtype: object</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[38]:</div>
+<div class="prompt input_prompt">In&nbsp;[40]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">daily_report</span><span class="p">[</span><span class="s1">&#39;Combined_Key&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;, &quot;</span><span class="p">,</span> <span class="s1">&#39;;&#39;</span><span class="p">)</span>
@@ -16750,7 +17084,7 @@ Name: Combined_Key, Length: 3958, dtype: object</pre>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[38]:</div>
+    <div class="prompt output_prompt">Out[40]:</div>
 
 
 
@@ -16785,7 +17119,7 @@ Name: Combined_Key, Length: 3958, dtype: string</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[39]:</div>
+<div class="prompt input_prompt">In&nbsp;[41]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">daily_report</span><span class="p">[</span><span class="s1">&#39;Country_Region&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s1">&#39;land&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
@@ -16813,7 +17147,7 @@ Name: Combined_Key, Length: 3958, dtype: string</pre>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[39]:</div>
+    <div class="prompt output_prompt">Out[41]:</div>
 
 
 
@@ -16859,16 +17193,16 @@ Name: Combined_Key, Length: 3958, dtype: string</pre>
       <td>&lt;NA&gt;</td>
       <td>&lt;NA&gt;</td>
       <td>Finland</td>
-      <td>2020-10-22 04:24:27</td>
+      <td>2020-10-27 04:24:45</td>
       <td>61.924110</td>
       <td>25.748151</td>
-      <td>14071</td>
-      <td>355</td>
+      <td>14970</td>
+      <td>354</td>
       <td>9800</td>
-      <td>3916.0</td>
+      <td>4816.0</td>
       <td>Finland</td>
-      <td>253.956256</td>
-      <td>2.522919</td>
+      <td>270.181590</td>
+      <td>2.364729</td>
     </tr>
     <tr>
       <th>233</th>
@@ -16876,16 +17210,16 @@ Name: Combined_Key, Length: 3958, dtype: string</pre>
       <td>&lt;NA&gt;</td>
       <td>&lt;NA&gt;</td>
       <td>Iceland</td>
-      <td>2020-10-22 04:24:27</td>
+      <td>2020-10-27 04:24:45</td>
       <td>64.963100</td>
       <td>-19.020800</td>
-      <td>4230</td>
+      <td>4504</td>
       <td>11</td>
-      <td>3013</td>
-      <td>1206.0</td>
+      <td>3463</td>
+      <td>1030.0</td>
       <td>Iceland</td>
-      <td>1239.560440</td>
-      <td>0.260047</td>
+      <td>1319.853480</td>
+      <td>0.244227</td>
     </tr>
     <tr>
       <th>274</th>
@@ -16893,16 +17227,16 @@ Name: Combined_Key, Length: 3958, dtype: string</pre>
       <td>&lt;NA&gt;</td>
       <td>&lt;NA&gt;</td>
       <td>Ireland</td>
-      <td>2020-10-22 04:24:27</td>
+      <td>2020-10-27 04:24:45</td>
       <td>53.142400</td>
       <td>-7.692100</td>
-      <td>53422</td>
-      <td>1868</td>
+      <td>58067</td>
+      <td>1885</td>
       <td>23364</td>
-      <td>28190.0</td>
+      <td>32818.0</td>
       <td>Ireland</td>
-      <td>1081.899698</td>
-      <td>3.496687</td>
+      <td>1175.970008</td>
+      <td>3.246250</td>
     </tr>
     <tr>
       <th>412</th>
@@ -16910,16 +17244,16 @@ Name: Combined_Key, Length: 3958, dtype: string</pre>
       <td>&lt;NA&gt;</td>
       <td>Aruba</td>
       <td>Netherlands</td>
-      <td>2020-10-22 04:24:27</td>
+      <td>2020-10-27 04:24:45</td>
       <td>12.521100</td>
       <td>-69.968300</td>
-      <td>4369</td>
-      <td>35</td>
-      <td>4084</td>
-      <td>250.0</td>
+      <td>4422</td>
+      <td>36</td>
+      <td>4222</td>
+      <td>164.0</td>
       <td>Aruba, Netherlands</td>
-      <td>4092.126707</td>
-      <td>0.801099</td>
+      <td>4141.767979</td>
+      <td>0.814111</td>
     </tr>
     <tr>
       <th>413</th>
@@ -16927,13 +17261,13 @@ Name: Combined_Key, Length: 3958, dtype: string</pre>
       <td>&lt;NA&gt;</td>
       <td>Bonaire, Sint Eustatius and Saba</td>
       <td>Netherlands</td>
-      <td>2020-10-22 04:24:27</td>
+      <td>2020-10-27 04:24:45</td>
       <td>12.178400</td>
       <td>-68.238500</td>
       <td>150</td>
       <td>3</td>
-      <td>121</td>
-      <td>26.0</td>
+      <td>126</td>
+      <td>21.0</td>
       <td>Bonaire, Sint Eustatius and Saba, Netherlands</td>
       <td>572.060562</td>
       <td>2.000000</td>
@@ -16944,16 +17278,16 @@ Name: Combined_Key, Length: 3958, dtype: string</pre>
       <td>&lt;NA&gt;</td>
       <td>Curacao</td>
       <td>Netherlands</td>
-      <td>2020-10-22 04:24:27</td>
+      <td>2020-10-27 04:24:45</td>
       <td>12.169600</td>
       <td>-68.990000</td>
-      <td>785</td>
+      <td>873</td>
       <td>1</td>
-      <td>479</td>
-      <td>305.0</td>
+      <td>590</td>
+      <td>282.0</td>
       <td>Curacao, Netherlands</td>
-      <td>478.366849</td>
-      <td>0.127389</td>
+      <td>531.992687</td>
+      <td>0.114548</td>
     </tr>
     <tr>
       <th>415</th>
@@ -16961,16 +17295,16 @@ Name: Combined_Key, Length: 3958, dtype: string</pre>
       <td>&lt;NA&gt;</td>
       <td>Drenthe</td>
       <td>Netherlands</td>
-      <td>2020-10-22 04:24:27</td>
+      <td>2020-10-27 04:24:45</td>
       <td>52.862485</td>
       <td>6.618435</td>
-      <td>3817</td>
-      <td>69</td>
+      <td>4551</td>
+      <td>74</td>
       <td>0</td>
-      <td>3748.0</td>
+      <td>4477.0</td>
       <td>Drenthe, Netherlands</td>
-      <td>773.169773</td>
-      <td>1.807702</td>
+      <td>921.848477</td>
+      <td>1.626016</td>
     </tr>
     <tr>
       <th>416</th>
@@ -16978,16 +17312,16 @@ Name: Combined_Key, Length: 3958, dtype: string</pre>
       <td>&lt;NA&gt;</td>
       <td>Flevoland</td>
       <td>Netherlands</td>
-      <td>2020-10-22 04:24:27</td>
+      <td>2020-10-27 04:24:45</td>
       <td>52.550383</td>
       <td>5.515162</td>
-      <td>4508</td>
+      <td>5453</td>
       <td>106</td>
       <td>0</td>
-      <td>4402.0</td>
+      <td>5347.0</td>
       <td>Flevoland, Netherlands</td>
-      <td>1065.668135</td>
-      <td>2.351375</td>
+      <td>1289.061300</td>
+      <td>1.943884</td>
     </tr>
     <tr>
       <th>417</th>
@@ -16995,16 +17329,16 @@ Name: Combined_Key, Length: 3958, dtype: string</pre>
       <td>&lt;NA&gt;</td>
       <td>Friesland</td>
       <td>Netherlands</td>
-      <td>2020-10-22 04:24:27</td>
+      <td>2020-10-27 04:24:45</td>
       <td>53.087337</td>
       <td>5.792500</td>
-      <td>4426</td>
-      <td>76</td>
+      <td>5177</td>
+      <td>83</td>
       <td>0</td>
-      <td>4350.0</td>
+      <td>5094.0</td>
       <td>Friesland, Netherlands</td>
-      <td>680.968126</td>
-      <td>1.717126</td>
+      <td>796.514231</td>
+      <td>1.603245</td>
     </tr>
     <tr>
       <th>418</th>
@@ -17012,16 +17346,16 @@ Name: Combined_Key, Length: 3958, dtype: string</pre>
       <td>&lt;NA&gt;</td>
       <td>Gelderland</td>
       <td>Netherlands</td>
-      <td>2020-10-22 04:24:27</td>
+      <td>2020-10-27 04:24:45</td>
       <td>52.061738</td>
       <td>5.939114</td>
-      <td>24023</td>
-      <td>758</td>
+      <td>27960</td>
+      <td>773</td>
       <td>0</td>
-      <td>23265.0</td>
+      <td>27187.0</td>
       <td>Gelderland, Netherlands</td>
-      <td>1151.656414</td>
-      <td>3.155309</td>
+      <td>1340.395177</td>
+      <td>2.764664</td>
     </tr>
     <tr>
       <th>419</th>
@@ -17029,16 +17363,16 @@ Name: Combined_Key, Length: 3958, dtype: string</pre>
       <td>&lt;NA&gt;</td>
       <td>Groningen</td>
       <td>Netherlands</td>
-      <td>2020-10-22 04:24:27</td>
+      <td>2020-10-27 04:24:45</td>
       <td>53.217922</td>
       <td>6.741514</td>
-      <td>4775</td>
-      <td>24</td>
+      <td>5315</td>
+      <td>27</td>
       <td>0</td>
-      <td>4751.0</td>
+      <td>5288.0</td>
       <td>Groningen, Netherlands</td>
-      <td>815.032789</td>
-      <td>0.502618</td>
+      <td>907.204036</td>
+      <td>0.507996</td>
     </tr>
     <tr>
       <th>420</th>
@@ -17046,16 +17380,16 @@ Name: Combined_Key, Length: 3958, dtype: string</pre>
       <td>&lt;NA&gt;</td>
       <td>Limburg</td>
       <td>Netherlands</td>
-      <td>2020-10-22 04:24:27</td>
+      <td>2020-10-27 04:24:45</td>
       <td>51.209227</td>
       <td>5.933870</td>
-      <td>11409</td>
-      <td>778</td>
+      <td>13650</td>
+      <td>789</td>
       <td>0</td>
-      <td>10631.0</td>
+      <td>12861.0</td>
       <td>Limburg, Netherlands</td>
-      <td>1021.212835</td>
-      <td>6.819178</td>
+      <td>1221.803418</td>
+      <td>5.780220</td>
     </tr>
     <tr>
       <th>421</th>
@@ -17063,16 +17397,16 @@ Name: Combined_Key, Length: 3958, dtype: string</pre>
       <td>&lt;NA&gt;</td>
       <td>Noord-Brabant</td>
       <td>Netherlands</td>
-      <td>2020-10-22 04:24:27</td>
+      <td>2020-10-27 04:24:45</td>
       <td>51.561174</td>
       <td>5.184942</td>
-      <td>37061</td>
-      <td>1626</td>
+      <td>44516</td>
+      <td>1661</td>
       <td>0</td>
-      <td>35435.0</td>
+      <td>42855.0</td>
       <td>Noord-Brabant, Netherlands</td>
-      <td>1446.026169</td>
-      <td>4.387361</td>
+      <td>1736.901350</td>
+      <td>3.731243</td>
     </tr>
     <tr>
       <th>422</th>
@@ -17080,16 +17414,16 @@ Name: Combined_Key, Length: 3958, dtype: string</pre>
       <td>&lt;NA&gt;</td>
       <td>Noord-Holland</td>
       <td>Netherlands</td>
-      <td>2020-10-22 04:24:27</td>
+      <td>2020-10-27 04:24:45</td>
       <td>52.600906</td>
       <td>4.918688</td>
-      <td>50300</td>
-      <td>935</td>
+      <td>58828</td>
+      <td>969</td>
       <td>0</td>
-      <td>49365.0</td>
+      <td>57859.0</td>
       <td>Noord-Holland, Netherlands</td>
-      <td>1746.814668</td>
-      <td>1.858847</td>
+      <td>2042.974419</td>
+      <td>1.647175</td>
     </tr>
     <tr>
       <th>423</th>
@@ -17097,16 +17431,16 @@ Name: Combined_Key, Length: 3958, dtype: string</pre>
       <td>&lt;NA&gt;</td>
       <td>Overijssel</td>
       <td>Netherlands</td>
-      <td>2020-10-22 04:24:27</td>
+      <td>2020-10-27 04:24:45</td>
       <td>52.444558</td>
       <td>6.441722</td>
-      <td>12440</td>
-      <td>375</td>
+      <td>16113</td>
+      <td>385</td>
       <td>0</td>
-      <td>12065.0</td>
+      <td>15728.0</td>
       <td>Overijssel, Netherlands</td>
-      <td>1070.194063</td>
-      <td>3.014469</td>
+      <td>1386.176603</td>
+      <td>2.389375</td>
     </tr>
     <tr>
       <th>424</th>
@@ -17114,16 +17448,16 @@ Name: Combined_Key, Length: 3958, dtype: string</pre>
       <td>&lt;NA&gt;</td>
       <td>Sint Maarten</td>
       <td>Netherlands</td>
-      <td>2020-10-22 04:24:27</td>
+      <td>2020-10-27 04:24:45</td>
       <td>18.042500</td>
       <td>-63.054800</td>
-      <td>769</td>
+      <td>789</td>
       <td>22</td>
-      <td>681</td>
-      <td>66.0</td>
+      <td>710</td>
+      <td>57.0</td>
       <td>Sint Maarten, Netherlands</td>
-      <td>1793.293223</td>
-      <td>2.860858</td>
+      <td>1839.932839</td>
+      <td>2.788340</td>
     </tr>
     <tr>
       <th>425</th>
@@ -17131,16 +17465,16 @@ Name: Combined_Key, Length: 3958, dtype: string</pre>
       <td>&lt;NA&gt;</td>
       <td>Unknown</td>
       <td>Netherlands</td>
-      <td>2020-10-22 04:24:27</td>
+      <td>2020-10-27 04:24:45</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>1869</td>
-      <td>21</td>
+      <td>2140</td>
+      <td>22</td>
       <td>0</td>
-      <td>1848.0</td>
+      <td>2118.0</td>
       <td>Unknown, Netherlands</td>
       <td>NaN</td>
-      <td>1.123596</td>
+      <td>1.028037</td>
     </tr>
     <tr>
       <th>426</th>
@@ -17148,16 +17482,16 @@ Name: Combined_Key, Length: 3958, dtype: string</pre>
       <td>&lt;NA&gt;</td>
       <td>Utrecht</td>
       <td>Netherlands</td>
-      <td>2020-10-22 04:24:27</td>
+      <td>2020-10-27 04:24:45</td>
       <td>52.084251</td>
       <td>5.163824</td>
-      <td>21897</td>
-      <td>470</td>
+      <td>26447</td>
+      <td>483</td>
       <td>0</td>
-      <td>21427.0</td>
+      <td>25964.0</td>
       <td>Utrecht, Netherlands</td>
-      <td>1616.212761</td>
-      <td>2.146413</td>
+      <td>1952.047262</td>
+      <td>1.826294</td>
     </tr>
     <tr>
       <th>427</th>
@@ -17165,16 +17499,16 @@ Name: Combined_Key, Length: 3958, dtype: string</pre>
       <td>&lt;NA&gt;</td>
       <td>Zeeland</td>
       <td>Netherlands</td>
-      <td>2020-10-22 04:24:27</td>
+      <td>2020-10-27 04:24:45</td>
       <td>51.479360</td>
       <td>3.861559</td>
-      <td>2505</td>
-      <td>78</td>
+      <td>2888</td>
+      <td>80</td>
       <td>0</td>
-      <td>2427.0</td>
+      <td>2808.0</td>
       <td>Zeeland, Netherlands</td>
-      <td>653.214703</td>
-      <td>3.113772</td>
+      <td>753.087450</td>
+      <td>2.770083</td>
     </tr>
     <tr>
       <th>428</th>
@@ -17182,16 +17516,16 @@ Name: Combined_Key, Length: 3958, dtype: string</pre>
       <td>&lt;NA&gt;</td>
       <td>Zuid-Holland</td>
       <td>Netherlands</td>
-      <td>2020-10-22 04:24:27</td>
+      <td>2020-10-27 04:24:45</td>
       <td>51.937835</td>
       <td>4.462114</td>
-      <td>74104</td>
-      <td>1557</td>
+      <td>88559</td>
+      <td>1620</td>
       <td>0</td>
-      <td>72547.0</td>
+      <td>86939.0</td>
       <td>Zuid-Holland, Netherlands</td>
-      <td>1998.114701</td>
-      <td>2.101101</td>
+      <td>2387.874336</td>
+      <td>1.829289</td>
     </tr>
     <tr>
       <th>429</th>
@@ -17199,16 +17533,16 @@ Name: Combined_Key, Length: 3958, dtype: string</pre>
       <td>&lt;NA&gt;</td>
       <td>&lt;NA&gt;</td>
       <td>New Zealand</td>
-      <td>2020-10-22 04:24:27</td>
+      <td>2020-10-27 04:24:45</td>
       <td>-40.900600</td>
       <td>174.886000</td>
-      <td>1914</td>
+      <td>1941</td>
       <td>25</td>
-      <td>1831</td>
-      <td>58.0</td>
+      <td>1848</td>
+      <td>68.0</td>
       <td>New Zealand</td>
-      <td>39.691156</td>
-      <td>1.306165</td>
+      <td>40.251062</td>
+      <td>1.287996</td>
     </tr>
     <tr>
       <th>473</th>
@@ -17216,16 +17550,16 @@ Name: Combined_Key, Length: 3958, dtype: string</pre>
       <td>&lt;NA&gt;</td>
       <td>&lt;NA&gt;</td>
       <td>Poland</td>
-      <td>2020-10-22 04:24:27</td>
+      <td>2020-10-27 04:24:45</td>
       <td>51.919400</td>
       <td>19.145100</td>
-      <td>202579</td>
-      <td>3851</td>
-      <td>98884</td>
-      <td>99844.0</td>
+      <td>263929</td>
+      <td>4483</td>
+      <td>115302</td>
+      <td>144144.0</td>
       <td>Poland</td>
-      <td>535.263335</td>
-      <td>1.900987</td>
+      <td>697.365061</td>
+      <td>1.698563</td>
     </tr>
     <tr>
       <th>574</th>
@@ -17233,15 +17567,15 @@ Name: Combined_Key, Length: 3958, dtype: string</pre>
       <td>&lt;NA&gt;</td>
       <td>&lt;NA&gt;</td>
       <td>Solomon Islands</td>
-      <td>2020-10-22 04:24:27</td>
+      <td>2020-10-27 04:24:45</td>
       <td>-9.645700</td>
       <td>160.156200</td>
-      <td>3</td>
+      <td>4</td>
       <td>0</td>
-      <td>0</td>
-      <td>3.0</td>
+      <td>4</td>
+      <td>0.0</td>
       <td>Solomon Islands</td>
-      <td>0.459518</td>
+      <td>0.612691</td>
       <td>0.000000</td>
     </tr>
     <tr>
@@ -17250,16 +17584,16 @@ Name: Combined_Key, Length: 3958, dtype: string</pre>
       <td>&lt;NA&gt;</td>
       <td>&lt;NA&gt;</td>
       <td>Switzerland</td>
-      <td>2020-10-22 04:24:27</td>
+      <td>2020-10-27 04:24:45</td>
       <td>46.818200</td>
       <td>8.227500</td>
-      <td>91763</td>
-      <td>2039</td>
-      <td>54600</td>
-      <td>35124.0</td>
+      <td>121093</td>
+      <td>2111</td>
+      <td>61700</td>
+      <td>57282.0</td>
       <td>Switzerland</td>
-      <td>1060.277877</td>
-      <td>2.222028</td>
+      <td>1399.172095</td>
+      <td>1.743288</td>
     </tr>
     <tr>
       <th>627</th>
@@ -17267,16 +17601,16 @@ Name: Combined_Key, Length: 3958, dtype: string</pre>
       <td>&lt;NA&gt;</td>
       <td>&lt;NA&gt;</td>
       <td>Thailand</td>
-      <td>2020-10-22 04:24:27</td>
+      <td>2020-10-27 04:24:45</td>
       <td>15.870032</td>
       <td>100.992541</td>
-      <td>3719</td>
+      <td>3746</td>
       <td>59</td>
-      <td>3514</td>
-      <td>146.0</td>
+      <td>3551</td>
+      <td>136.0</td>
       <td>Thailand</td>
-      <td>5.328082</td>
-      <td>1.586448</td>
+      <td>5.366764</td>
+      <td>1.575013</td>
     </tr>
   </tbody>
 </table>
@@ -17299,7 +17633,7 @@ Name: Combined_Key, Length: 3958, dtype: string</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[40]:</div>
+<div class="prompt input_prompt">In&nbsp;[42]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">ts_confirmed_global_url</span> <span class="o">=</span> <span class="s2">&quot;https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_global.csv&quot;</span>
@@ -17317,7 +17651,7 @@ Name: Combined_Key, Length: 3958, dtype: string</pre>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[40]:</div>
+    <div class="prompt output_prompt">Out[42]:</div>
 
 
 
@@ -17351,16 +17685,16 @@ Name: Combined_Key, Length: 3958, dtype: string</pre>
       <th>1/26/20</th>
       <th>1/27/20</th>
       <th>...</th>
-      <th>10/12/20</th>
-      <th>10/13/20</th>
-      <th>10/14/20</th>
-      <th>10/15/20</th>
-      <th>10/16/20</th>
       <th>10/17/20</th>
       <th>10/18/20</th>
       <th>10/19/20</th>
       <th>10/20/20</th>
       <th>10/21/20</th>
+      <th>10/22/20</th>
+      <th>10/23/20</th>
+      <th>10/24/20</th>
+      <th>10/25/20</th>
+      <th>10/26/20</th>
     </tr>
   </thead>
   <tbody>
@@ -17377,16 +17711,16 @@ Name: Combined_Key, Length: 3958, dtype: string</pre>
       <td>0</td>
       <td>0</td>
       <td>...</td>
-      <td>39870</td>
-      <td>39928</td>
-      <td>39994</td>
-      <td>40026</td>
-      <td>40073</td>
       <td>40141</td>
       <td>40200</td>
       <td>40287</td>
       <td>40357</td>
       <td>40510</td>
+      <td>40626</td>
+      <td>40687</td>
+      <td>40768</td>
+      <td>40833</td>
+      <td>40937</td>
     </tr>
     <tr>
       <th>1</th>
@@ -17401,16 +17735,16 @@ Name: Combined_Key, Length: 3958, dtype: string</pre>
       <td>0</td>
       <td>0</td>
       <td>...</td>
-      <td>15570</td>
-      <td>15752</td>
-      <td>15955</td>
-      <td>16212</td>
-      <td>16501</td>
       <td>16774</td>
       <td>17055</td>
       <td>17350</td>
       <td>17651</td>
       <td>17948</td>
+      <td>18250</td>
+      <td>18556</td>
+      <td>18858</td>
+      <td>19157</td>
+      <td>19445</td>
     </tr>
     <tr>
       <th>2</th>
@@ -17425,16 +17759,16 @@ Name: Combined_Key, Length: 3958, dtype: string</pre>
       <td>0</td>
       <td>0</td>
       <td>...</td>
-      <td>53325</td>
-      <td>53399</td>
-      <td>53584</td>
-      <td>53777</td>
-      <td>53998</td>
       <td>54203</td>
       <td>54402</td>
       <td>54616</td>
       <td>54829</td>
       <td>55081</td>
+      <td>55357</td>
+      <td>55630</td>
+      <td>55880</td>
+      <td>56143</td>
+      <td>56419</td>
     </tr>
     <tr>
       <th>3</th>
@@ -17449,16 +17783,16 @@ Name: Combined_Key, Length: 3958, dtype: string</pre>
       <td>0</td>
       <td>0</td>
       <td>...</td>
-      <td>2995</td>
-      <td>2995</td>
-      <td>3190</td>
-      <td>3190</td>
-      <td>3377</td>
       <td>3377</td>
       <td>3377</td>
       <td>3623</td>
       <td>3623</td>
       <td>3811</td>
+      <td>3811</td>
+      <td>4038</td>
+      <td>4038</td>
+      <td>4038</td>
+      <td>4325</td>
     </tr>
     <tr>
       <th>4</th>
@@ -17473,16 +17807,16 @@ Name: Combined_Key, Length: 3958, dtype: string</pre>
       <td>0</td>
       <td>0</td>
       <td>...</td>
-      <td>6488</td>
-      <td>6680</td>
-      <td>6846</td>
-      <td>7096</td>
-      <td>7222</td>
       <td>7462</td>
       <td>7622</td>
       <td>7829</td>
       <td>8049</td>
       <td>8338</td>
+      <td>8582</td>
+      <td>8829</td>
+      <td>9026</td>
+      <td>9381</td>
+      <td>9644</td>
     </tr>
     <tr>
       <th>...</th>
@@ -17521,16 +17855,16 @@ Name: Combined_Key, Length: 3958, dtype: string</pre>
       <td>0</td>
       <td>0</td>
       <td>...</td>
-      <td>44684</td>
-      <td>45200</td>
-      <td>45658</td>
-      <td>46100</td>
-      <td>46434</td>
       <td>46746</td>
       <td>47135</td>
       <td>47616</td>
       <td>48129</td>
       <td>48628</td>
+      <td>49134</td>
+      <td>49579</td>
+      <td>49989</td>
+      <td>50442</td>
+      <td>50952</td>
     </tr>
     <tr>
       <th>263</th>
@@ -17569,16 +17903,16 @@ Name: Combined_Key, Length: 3958, dtype: string</pre>
       <td>0</td>
       <td>0</td>
       <td>...</td>
-      <td>2052</td>
-      <td>2053</td>
-      <td>2053</td>
-      <td>2053</td>
-      <td>2055</td>
       <td>2055</td>
       <td>2056</td>
       <td>2056</td>
       <td>2057</td>
       <td>2057</td>
+      <td>2057</td>
+      <td>2060</td>
+      <td>2060</td>
+      <td>2060</td>
+      <td>2060</td>
     </tr>
     <tr>
       <th>265</th>
@@ -17593,16 +17927,16 @@ Name: Combined_Key, Length: 3958, dtype: string</pre>
       <td>0</td>
       <td>0</td>
       <td>...</td>
-      <td>15549</td>
-      <td>15587</td>
-      <td>15616</td>
-      <td>15659</td>
-      <td>15659</td>
       <td>15789</td>
       <td>15853</td>
       <td>15897</td>
       <td>15982</td>
       <td>16000</td>
+      <td>16035</td>
+      <td>16095</td>
+      <td>16117</td>
+      <td>16117</td>
+      <td>16200</td>
     </tr>
     <tr>
       <th>266</th>
@@ -17617,20 +17951,20 @@ Name: Combined_Key, Length: 3958, dtype: string</pre>
       <td>0</td>
       <td>0</td>
       <td>...</td>
-      <td>8021</td>
-      <td>8036</td>
-      <td>8055</td>
-      <td>8075</td>
-      <td>8099</td>
       <td>8110</td>
       <td>8147</td>
       <td>8159</td>
       <td>8187</td>
       <td>8215</td>
+      <td>8242</td>
+      <td>8257</td>
+      <td>8269</td>
+      <td>8276</td>
+      <td>8303</td>
     </tr>
   </tbody>
 </table>
-<p>267 rows × 278 columns</p>
+<p>267 rows × 283 columns</p>
 </div>
 </div>
 
@@ -17669,7 +18003,7 @@ Name: Combined_Key, Length: 3958, dtype: string</pre>
 </div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[41]:</div>
+<div class="prompt input_prompt">In&nbsp;[43]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">idVars</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Province/State&#39;</span><span class="p">,</span> <span class="s1">&#39;Country/Region&#39;</span><span class="p">,</span> <span class="s1">&#39;Lat&#39;</span><span class="p">,</span> <span class="s1">&#39;Long&#39;</span><span class="p">]</span>
@@ -17690,7 +18024,7 @@ Name: Combined_Key, Length: 3958, dtype: string</pre>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[41]:</div>
+    <div class="prompt output_prompt">Out[43]:</div>
 
 
 
@@ -17777,53 +18111,53 @@ Name: Combined_Key, Length: 3958, dtype: string</pre>
       <td>...</td>
     </tr>
     <tr>
-      <th>73153</th>
+      <th>74488</th>
       <td>NaN</td>
       <td>West Bank and Gaza</td>
       <td>31.952200</td>
       <td>35.233200</td>
-      <td>10/21/20</td>
-      <td>48628</td>
+      <td>10/26/20</td>
+      <td>50952</td>
     </tr>
     <tr>
-      <th>73154</th>
+      <th>74489</th>
       <td>NaN</td>
       <td>Western Sahara</td>
       <td>24.215500</td>
       <td>-12.885800</td>
-      <td>10/21/20</td>
+      <td>10/26/20</td>
       <td>10</td>
     </tr>
     <tr>
-      <th>73155</th>
+      <th>74490</th>
       <td>NaN</td>
       <td>Yemen</td>
       <td>15.552727</td>
       <td>48.516388</td>
-      <td>10/21/20</td>
-      <td>2057</td>
+      <td>10/26/20</td>
+      <td>2060</td>
     </tr>
     <tr>
-      <th>73156</th>
+      <th>74491</th>
       <td>NaN</td>
       <td>Zambia</td>
       <td>-13.133897</td>
       <td>27.849332</td>
-      <td>10/21/20</td>
-      <td>16000</td>
+      <td>10/26/20</td>
+      <td>16200</td>
     </tr>
     <tr>
-      <th>73157</th>
+      <th>74492</th>
       <td>NaN</td>
       <td>Zimbabwe</td>
       <td>-19.015438</td>
       <td>29.154857</td>
-      <td>10/21/20</td>
-      <td>8215</td>
+      <td>10/26/20</td>
+      <td>8303</td>
     </tr>
   </tbody>
 </table>
-<p>73158 rows × 6 columns</p>
+<p>74493 rows × 6 columns</p>
 </div>
 </div>
 
@@ -17853,673 +18187,13 @@ Name: Combined_Key, Length: 3958, dtype: string</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[42]:</div>
+<div class="prompt input_prompt">In&nbsp;[44]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">left_df</span> <span class="o">=</span> <span class="n">daily_report</span><span class="p">[</span><span class="n">daily_report</span><span class="p">[</span><span class="s1">&#39;Country_Region&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">([</span><span class="s1">&#39;Taiwan*&#39;</span><span class="p">,</span> <span class="s1">&#39;Japan&#39;</span><span class="p">])]</span>
 <span class="n">right_df</span> <span class="o">=</span> <span class="n">ts_confirmed_global_long</span><span class="p">[</span><span class="n">ts_confirmed_global_long</span><span class="p">[</span><span class="s1">&#39;Country/Region&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">([</span><span class="s1">&#39;Taiwan*&#39;</span><span class="p">,</span> <span class="s1">&#39;Korea, South&#39;</span><span class="p">])]</span>
 <span class="c1"># default: inner join</span>
 <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">left_df</span><span class="p">,</span> <span class="n">right_df</span><span class="p">,</span> <span class="n">left_on</span><span class="o">=</span><span class="s1">&#39;Country_Region&#39;</span><span class="p">,</span> <span class="n">right_on</span><span class="o">=</span><span class="s1">&#39;Country/Region&#39;</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[42]:</div>
-
-
-
-<div class="output_html rendered_html output_subarea output_execute_result">
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>FIPS</th>
-      <th>Admin2</th>
-      <th>Province_State</th>
-      <th>Country_Region</th>
-      <th>Last_Update</th>
-      <th>Lat_x</th>
-      <th>Long_</th>
-      <th>Confirmed_x</th>
-      <th>Deaths</th>
-      <th>Recovered</th>
-      <th>Active</th>
-      <th>Combined_Key</th>
-      <th>Incidence_Rate</th>
-      <th>Case-Fatality_Ratio</th>
-      <th>Province/State</th>
-      <th>Country/Region</th>
-      <th>Lat_y</th>
-      <th>Long</th>
-      <th>Date</th>
-      <th>Confirmed_y</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>NaN</td>
-      <td>&lt;NA&gt;</td>
-      <td>&lt;NA&gt;</td>
-      <td>Taiwan*</td>
-      <td>2020-10-22 04:24:27</td>
-      <td>23.7</td>
-      <td>121.0</td>
-      <td>544</td>
-      <td>7</td>
-      <td>495</td>
-      <td>42.0</td>
-      <td>Taiwan*</td>
-      <td>2.284104</td>
-      <td>1.286765</td>
-      <td>NaN</td>
-      <td>Taiwan*</td>
-      <td>23.7</td>
-      <td>121.0</td>
-      <td>1/22/20</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>NaN</td>
-      <td>&lt;NA&gt;</td>
-      <td>&lt;NA&gt;</td>
-      <td>Taiwan*</td>
-      <td>2020-10-22 04:24:27</td>
-      <td>23.7</td>
-      <td>121.0</td>
-      <td>544</td>
-      <td>7</td>
-      <td>495</td>
-      <td>42.0</td>
-      <td>Taiwan*</td>
-      <td>2.284104</td>
-      <td>1.286765</td>
-      <td>NaN</td>
-      <td>Taiwan*</td>
-      <td>23.7</td>
-      <td>121.0</td>
-      <td>1/23/20</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>NaN</td>
-      <td>&lt;NA&gt;</td>
-      <td>&lt;NA&gt;</td>
-      <td>Taiwan*</td>
-      <td>2020-10-22 04:24:27</td>
-      <td>23.7</td>
-      <td>121.0</td>
-      <td>544</td>
-      <td>7</td>
-      <td>495</td>
-      <td>42.0</td>
-      <td>Taiwan*</td>
-      <td>2.284104</td>
-      <td>1.286765</td>
-      <td>NaN</td>
-      <td>Taiwan*</td>
-      <td>23.7</td>
-      <td>121.0</td>
-      <td>1/24/20</td>
-      <td>3</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>NaN</td>
-      <td>&lt;NA&gt;</td>
-      <td>&lt;NA&gt;</td>
-      <td>Taiwan*</td>
-      <td>2020-10-22 04:24:27</td>
-      <td>23.7</td>
-      <td>121.0</td>
-      <td>544</td>
-      <td>7</td>
-      <td>495</td>
-      <td>42.0</td>
-      <td>Taiwan*</td>
-      <td>2.284104</td>
-      <td>1.286765</td>
-      <td>NaN</td>
-      <td>Taiwan*</td>
-      <td>23.7</td>
-      <td>121.0</td>
-      <td>1/25/20</td>
-      <td>3</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>NaN</td>
-      <td>&lt;NA&gt;</td>
-      <td>&lt;NA&gt;</td>
-      <td>Taiwan*</td>
-      <td>2020-10-22 04:24:27</td>
-      <td>23.7</td>
-      <td>121.0</td>
-      <td>544</td>
-      <td>7</td>
-      <td>495</td>
-      <td>42.0</td>
-      <td>Taiwan*</td>
-      <td>2.284104</td>
-      <td>1.286765</td>
-      <td>NaN</td>
-      <td>Taiwan*</td>
-      <td>23.7</td>
-      <td>121.0</td>
-      <td>1/26/20</td>
-      <td>4</td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <th>269</th>
-      <td>NaN</td>
-      <td>&lt;NA&gt;</td>
-      <td>&lt;NA&gt;</td>
-      <td>Taiwan*</td>
-      <td>2020-10-22 04:24:27</td>
-      <td>23.7</td>
-      <td>121.0</td>
-      <td>544</td>
-      <td>7</td>
-      <td>495</td>
-      <td>42.0</td>
-      <td>Taiwan*</td>
-      <td>2.284104</td>
-      <td>1.286765</td>
-      <td>NaN</td>
-      <td>Taiwan*</td>
-      <td>23.7</td>
-      <td>121.0</td>
-      <td>10/17/20</td>
-      <td>535</td>
-    </tr>
-    <tr>
-      <th>270</th>
-      <td>NaN</td>
-      <td>&lt;NA&gt;</td>
-      <td>&lt;NA&gt;</td>
-      <td>Taiwan*</td>
-      <td>2020-10-22 04:24:27</td>
-      <td>23.7</td>
-      <td>121.0</td>
-      <td>544</td>
-      <td>7</td>
-      <td>495</td>
-      <td>42.0</td>
-      <td>Taiwan*</td>
-      <td>2.284104</td>
-      <td>1.286765</td>
-      <td>NaN</td>
-      <td>Taiwan*</td>
-      <td>23.7</td>
-      <td>121.0</td>
-      <td>10/18/20</td>
-      <td>535</td>
-    </tr>
-    <tr>
-      <th>271</th>
-      <td>NaN</td>
-      <td>&lt;NA&gt;</td>
-      <td>&lt;NA&gt;</td>
-      <td>Taiwan*</td>
-      <td>2020-10-22 04:24:27</td>
-      <td>23.7</td>
-      <td>121.0</td>
-      <td>544</td>
-      <td>7</td>
-      <td>495</td>
-      <td>42.0</td>
-      <td>Taiwan*</td>
-      <td>2.284104</td>
-      <td>1.286765</td>
-      <td>NaN</td>
-      <td>Taiwan*</td>
-      <td>23.7</td>
-      <td>121.0</td>
-      <td>10/19/20</td>
-      <td>540</td>
-    </tr>
-    <tr>
-      <th>272</th>
-      <td>NaN</td>
-      <td>&lt;NA&gt;</td>
-      <td>&lt;NA&gt;</td>
-      <td>Taiwan*</td>
-      <td>2020-10-22 04:24:27</td>
-      <td>23.7</td>
-      <td>121.0</td>
-      <td>544</td>
-      <td>7</td>
-      <td>495</td>
-      <td>42.0</td>
-      <td>Taiwan*</td>
-      <td>2.284104</td>
-      <td>1.286765</td>
-      <td>NaN</td>
-      <td>Taiwan*</td>
-      <td>23.7</td>
-      <td>121.0</td>
-      <td>10/20/20</td>
-      <td>543</td>
-    </tr>
-    <tr>
-      <th>273</th>
-      <td>NaN</td>
-      <td>&lt;NA&gt;</td>
-      <td>&lt;NA&gt;</td>
-      <td>Taiwan*</td>
-      <td>2020-10-22 04:24:27</td>
-      <td>23.7</td>
-      <td>121.0</td>
-      <td>544</td>
-      <td>7</td>
-      <td>495</td>
-      <td>42.0</td>
-      <td>Taiwan*</td>
-      <td>2.284104</td>
-      <td>1.286765</td>
-      <td>NaN</td>
-      <td>Taiwan*</td>
-      <td>23.7</td>
-      <td>121.0</td>
-      <td>10/21/20</td>
-      <td>544</td>
-    </tr>
-  </tbody>
-</table>
-<p>274 rows × 20 columns</p>
-</div>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div></section><section>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[43]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># left join</span>
-<span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">left_df</span><span class="p">,</span> <span class="n">right_df</span><span class="p">,</span> <span class="n">left_on</span><span class="o">=</span><span class="s1">&#39;Country_Region&#39;</span><span class="p">,</span> <span class="n">right_on</span><span class="o">=</span><span class="s1">&#39;Country/Region&#39;</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[43]:</div>
-
-
-
-<div class="output_html rendered_html output_subarea output_execute_result">
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>FIPS</th>
-      <th>Admin2</th>
-      <th>Province_State</th>
-      <th>Country_Region</th>
-      <th>Last_Update</th>
-      <th>Lat_x</th>
-      <th>Long_</th>
-      <th>Confirmed_x</th>
-      <th>Deaths</th>
-      <th>Recovered</th>
-      <th>Active</th>
-      <th>Combined_Key</th>
-      <th>Incidence_Rate</th>
-      <th>Case-Fatality_Ratio</th>
-      <th>Province/State</th>
-      <th>Country/Region</th>
-      <th>Lat_y</th>
-      <th>Long</th>
-      <th>Date</th>
-      <th>Confirmed_y</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>NaN</td>
-      <td>&lt;NA&gt;</td>
-      <td>Aichi</td>
-      <td>Japan</td>
-      <td>2020-10-22 04:24:27</td>
-      <td>35.035551</td>
-      <td>137.211621</td>
-      <td>5756</td>
-      <td>90</td>
-      <td>5376</td>
-      <td>290.0</td>
-      <td>Aichi, Japan</td>
-      <td>76.215808</td>
-      <td>1.563586</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>NaN</td>
-      <td>&lt;NA&gt;</td>
-      <td>Akita</td>
-      <td>Japan</td>
-      <td>2020-10-22 04:24:27</td>
-      <td>39.748679</td>
-      <td>140.408228</td>
-      <td>61</td>
-      <td>0</td>
-      <td>59</td>
-      <td>2.0</td>
-      <td>Akita, Japan</td>
-      <td>6.311498</td>
-      <td>0.000000</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>NaN</td>
-      <td>&lt;NA&gt;</td>
-      <td>Aomori</td>
-      <td>Japan</td>
-      <td>2020-10-22 04:24:27</td>
-      <td>40.781541</td>
-      <td>140.828896</td>
-      <td>143</td>
-      <td>1</td>
-      <td>36</td>
-      <td>106.0</td>
-      <td>Aomori, Japan</td>
-      <td>11.473309</td>
-      <td>0.699301</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>NaN</td>
-      <td>&lt;NA&gt;</td>
-      <td>Chiba</td>
-      <td>Japan</td>
-      <td>2020-10-22 04:24:27</td>
-      <td>35.510141</td>
-      <td>140.198917</td>
-      <td>4638</td>
-      <td>76</td>
-      <td>4175</td>
-      <td>387.0</td>
-      <td>Chiba, Japan</td>
-      <td>74.096772</td>
-      <td>1.638637</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>NaN</td>
-      <td>&lt;NA&gt;</td>
-      <td>Ehime</td>
-      <td>Japan</td>
-      <td>2020-10-22 04:24:27</td>
-      <td>33.624835</td>
-      <td>132.856842</td>
-      <td>116</td>
-      <td>6</td>
-      <td>108</td>
-      <td>2.0</td>
-      <td>Ehime, Japan</td>
-      <td>8.661791</td>
-      <td>5.172414</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <th>318</th>
-      <td>NaN</td>
-      <td>&lt;NA&gt;</td>
-      <td>&lt;NA&gt;</td>
-      <td>Taiwan*</td>
-      <td>2020-10-22 04:24:27</td>
-      <td>23.700000</td>
-      <td>121.000000</td>
-      <td>544</td>
-      <td>7</td>
-      <td>495</td>
-      <td>42.0</td>
-      <td>Taiwan*</td>
-      <td>2.284104</td>
-      <td>1.286765</td>
-      <td>NaN</td>
-      <td>Taiwan*</td>
-      <td>23.7</td>
-      <td>121.0</td>
-      <td>10/17/20</td>
-      <td>535.0</td>
-    </tr>
-    <tr>
-      <th>319</th>
-      <td>NaN</td>
-      <td>&lt;NA&gt;</td>
-      <td>&lt;NA&gt;</td>
-      <td>Taiwan*</td>
-      <td>2020-10-22 04:24:27</td>
-      <td>23.700000</td>
-      <td>121.000000</td>
-      <td>544</td>
-      <td>7</td>
-      <td>495</td>
-      <td>42.0</td>
-      <td>Taiwan*</td>
-      <td>2.284104</td>
-      <td>1.286765</td>
-      <td>NaN</td>
-      <td>Taiwan*</td>
-      <td>23.7</td>
-      <td>121.0</td>
-      <td>10/18/20</td>
-      <td>535.0</td>
-    </tr>
-    <tr>
-      <th>320</th>
-      <td>NaN</td>
-      <td>&lt;NA&gt;</td>
-      <td>&lt;NA&gt;</td>
-      <td>Taiwan*</td>
-      <td>2020-10-22 04:24:27</td>
-      <td>23.700000</td>
-      <td>121.000000</td>
-      <td>544</td>
-      <td>7</td>
-      <td>495</td>
-      <td>42.0</td>
-      <td>Taiwan*</td>
-      <td>2.284104</td>
-      <td>1.286765</td>
-      <td>NaN</td>
-      <td>Taiwan*</td>
-      <td>23.7</td>
-      <td>121.0</td>
-      <td>10/19/20</td>
-      <td>540.0</td>
-    </tr>
-    <tr>
-      <th>321</th>
-      <td>NaN</td>
-      <td>&lt;NA&gt;</td>
-      <td>&lt;NA&gt;</td>
-      <td>Taiwan*</td>
-      <td>2020-10-22 04:24:27</td>
-      <td>23.700000</td>
-      <td>121.000000</td>
-      <td>544</td>
-      <td>7</td>
-      <td>495</td>
-      <td>42.0</td>
-      <td>Taiwan*</td>
-      <td>2.284104</td>
-      <td>1.286765</td>
-      <td>NaN</td>
-      <td>Taiwan*</td>
-      <td>23.7</td>
-      <td>121.0</td>
-      <td>10/20/20</td>
-      <td>543.0</td>
-    </tr>
-    <tr>
-      <th>322</th>
-      <td>NaN</td>
-      <td>&lt;NA&gt;</td>
-      <td>&lt;NA&gt;</td>
-      <td>Taiwan*</td>
-      <td>2020-10-22 04:24:27</td>
-      <td>23.700000</td>
-      <td>121.000000</td>
-      <td>544</td>
-      <td>7</td>
-      <td>495</td>
-      <td>42.0</td>
-      <td>Taiwan*</td>
-      <td>2.284104</td>
-      <td>1.286765</td>
-      <td>NaN</td>
-      <td>Taiwan*</td>
-      <td>23.7</td>
-      <td>121.0</td>
-      <td>10/21/20</td>
-      <td>544.0</td>
-    </tr>
-  </tbody>
-</table>
-<p>323 rows × 20 columns</p>
-</div>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div></section><section>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[44]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># right join</span>
-<span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">left_df</span><span class="p">,</span> <span class="n">right_df</span><span class="p">,</span> <span class="n">left_on</span><span class="o">=</span><span class="s1">&#39;Country_Region&#39;</span><span class="p">,</span> <span class="n">right_on</span><span class="o">=</span><span class="s1">&#39;Country/Region&#39;</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;right&#39;</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -18583,6 +18257,666 @@ Name: Combined_Key, Length: 3958, dtype: string</pre>
       <td>NaN</td>
       <td>&lt;NA&gt;</td>
       <td>&lt;NA&gt;</td>
+      <td>Taiwan*</td>
+      <td>2020-10-27 04:24:45</td>
+      <td>23.7</td>
+      <td>121.0</td>
+      <td>550</td>
+      <td>7</td>
+      <td>502</td>
+      <td>41.0</td>
+      <td>Taiwan*</td>
+      <td>2.309297</td>
+      <td>1.272727</td>
+      <td>NaN</td>
+      <td>Taiwan*</td>
+      <td>23.7</td>
+      <td>121.0</td>
+      <td>1/22/20</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>NaN</td>
+      <td>&lt;NA&gt;</td>
+      <td>&lt;NA&gt;</td>
+      <td>Taiwan*</td>
+      <td>2020-10-27 04:24:45</td>
+      <td>23.7</td>
+      <td>121.0</td>
+      <td>550</td>
+      <td>7</td>
+      <td>502</td>
+      <td>41.0</td>
+      <td>Taiwan*</td>
+      <td>2.309297</td>
+      <td>1.272727</td>
+      <td>NaN</td>
+      <td>Taiwan*</td>
+      <td>23.7</td>
+      <td>121.0</td>
+      <td>1/23/20</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>NaN</td>
+      <td>&lt;NA&gt;</td>
+      <td>&lt;NA&gt;</td>
+      <td>Taiwan*</td>
+      <td>2020-10-27 04:24:45</td>
+      <td>23.7</td>
+      <td>121.0</td>
+      <td>550</td>
+      <td>7</td>
+      <td>502</td>
+      <td>41.0</td>
+      <td>Taiwan*</td>
+      <td>2.309297</td>
+      <td>1.272727</td>
+      <td>NaN</td>
+      <td>Taiwan*</td>
+      <td>23.7</td>
+      <td>121.0</td>
+      <td>1/24/20</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>NaN</td>
+      <td>&lt;NA&gt;</td>
+      <td>&lt;NA&gt;</td>
+      <td>Taiwan*</td>
+      <td>2020-10-27 04:24:45</td>
+      <td>23.7</td>
+      <td>121.0</td>
+      <td>550</td>
+      <td>7</td>
+      <td>502</td>
+      <td>41.0</td>
+      <td>Taiwan*</td>
+      <td>2.309297</td>
+      <td>1.272727</td>
+      <td>NaN</td>
+      <td>Taiwan*</td>
+      <td>23.7</td>
+      <td>121.0</td>
+      <td>1/25/20</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>NaN</td>
+      <td>&lt;NA&gt;</td>
+      <td>&lt;NA&gt;</td>
+      <td>Taiwan*</td>
+      <td>2020-10-27 04:24:45</td>
+      <td>23.7</td>
+      <td>121.0</td>
+      <td>550</td>
+      <td>7</td>
+      <td>502</td>
+      <td>41.0</td>
+      <td>Taiwan*</td>
+      <td>2.309297</td>
+      <td>1.272727</td>
+      <td>NaN</td>
+      <td>Taiwan*</td>
+      <td>23.7</td>
+      <td>121.0</td>
+      <td>1/26/20</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>274</th>
+      <td>NaN</td>
+      <td>&lt;NA&gt;</td>
+      <td>&lt;NA&gt;</td>
+      <td>Taiwan*</td>
+      <td>2020-10-27 04:24:45</td>
+      <td>23.7</td>
+      <td>121.0</td>
+      <td>550</td>
+      <td>7</td>
+      <td>502</td>
+      <td>41.0</td>
+      <td>Taiwan*</td>
+      <td>2.309297</td>
+      <td>1.272727</td>
+      <td>NaN</td>
+      <td>Taiwan*</td>
+      <td>23.7</td>
+      <td>121.0</td>
+      <td>10/22/20</td>
+      <td>548</td>
+    </tr>
+    <tr>
+      <th>275</th>
+      <td>NaN</td>
+      <td>&lt;NA&gt;</td>
+      <td>&lt;NA&gt;</td>
+      <td>Taiwan*</td>
+      <td>2020-10-27 04:24:45</td>
+      <td>23.7</td>
+      <td>121.0</td>
+      <td>550</td>
+      <td>7</td>
+      <td>502</td>
+      <td>41.0</td>
+      <td>Taiwan*</td>
+      <td>2.309297</td>
+      <td>1.272727</td>
+      <td>NaN</td>
+      <td>Taiwan*</td>
+      <td>23.7</td>
+      <td>121.0</td>
+      <td>10/23/20</td>
+      <td>548</td>
+    </tr>
+    <tr>
+      <th>276</th>
+      <td>NaN</td>
+      <td>&lt;NA&gt;</td>
+      <td>&lt;NA&gt;</td>
+      <td>Taiwan*</td>
+      <td>2020-10-27 04:24:45</td>
+      <td>23.7</td>
+      <td>121.0</td>
+      <td>550</td>
+      <td>7</td>
+      <td>502</td>
+      <td>41.0</td>
+      <td>Taiwan*</td>
+      <td>2.309297</td>
+      <td>1.272727</td>
+      <td>NaN</td>
+      <td>Taiwan*</td>
+      <td>23.7</td>
+      <td>121.0</td>
+      <td>10/24/20</td>
+      <td>550</td>
+    </tr>
+    <tr>
+      <th>277</th>
+      <td>NaN</td>
+      <td>&lt;NA&gt;</td>
+      <td>&lt;NA&gt;</td>
+      <td>Taiwan*</td>
+      <td>2020-10-27 04:24:45</td>
+      <td>23.7</td>
+      <td>121.0</td>
+      <td>550</td>
+      <td>7</td>
+      <td>502</td>
+      <td>41.0</td>
+      <td>Taiwan*</td>
+      <td>2.309297</td>
+      <td>1.272727</td>
+      <td>NaN</td>
+      <td>Taiwan*</td>
+      <td>23.7</td>
+      <td>121.0</td>
+      <td>10/25/20</td>
+      <td>550</td>
+    </tr>
+    <tr>
+      <th>278</th>
+      <td>NaN</td>
+      <td>&lt;NA&gt;</td>
+      <td>&lt;NA&gt;</td>
+      <td>Taiwan*</td>
+      <td>2020-10-27 04:24:45</td>
+      <td>23.7</td>
+      <td>121.0</td>
+      <td>550</td>
+      <td>7</td>
+      <td>502</td>
+      <td>41.0</td>
+      <td>Taiwan*</td>
+      <td>2.309297</td>
+      <td>1.272727</td>
+      <td>NaN</td>
+      <td>Taiwan*</td>
+      <td>23.7</td>
+      <td>121.0</td>
+      <td>10/26/20</td>
+      <td>550</td>
+    </tr>
+  </tbody>
+</table>
+<p>279 rows × 20 columns</p>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div></section><section>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[45]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># left join</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">left_df</span><span class="p">,</span> <span class="n">right_df</span><span class="p">,</span> <span class="n">left_on</span><span class="o">=</span><span class="s1">&#39;Country_Region&#39;</span><span class="p">,</span> <span class="n">right_on</span><span class="o">=</span><span class="s1">&#39;Country/Region&#39;</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[45]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>FIPS</th>
+      <th>Admin2</th>
+      <th>Province_State</th>
+      <th>Country_Region</th>
+      <th>Last_Update</th>
+      <th>Lat_x</th>
+      <th>Long_</th>
+      <th>Confirmed_x</th>
+      <th>Deaths</th>
+      <th>Recovered</th>
+      <th>Active</th>
+      <th>Combined_Key</th>
+      <th>Incidence_Rate</th>
+      <th>Case-Fatality_Ratio</th>
+      <th>Province/State</th>
+      <th>Country/Region</th>
+      <th>Lat_y</th>
+      <th>Long</th>
+      <th>Date</th>
+      <th>Confirmed_y</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>NaN</td>
+      <td>&lt;NA&gt;</td>
+      <td>Aichi</td>
+      <td>Japan</td>
+      <td>2020-10-27 04:24:45</td>
+      <td>35.035551</td>
+      <td>137.211621</td>
+      <td>5913</td>
+      <td>91</td>
+      <td>5499</td>
+      <td>323.0</td>
+      <td>Aichi, Japan</td>
+      <td>78.294662</td>
+      <td>1.538982</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>NaN</td>
+      <td>&lt;NA&gt;</td>
+      <td>Akita</td>
+      <td>Japan</td>
+      <td>2020-10-27 04:24:45</td>
+      <td>39.748679</td>
+      <td>140.408228</td>
+      <td>61</td>
+      <td>0</td>
+      <td>59</td>
+      <td>2.0</td>
+      <td>Akita, Japan</td>
+      <td>6.311498</td>
+      <td>0.000000</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>NaN</td>
+      <td>&lt;NA&gt;</td>
+      <td>Aomori</td>
+      <td>Japan</td>
+      <td>2020-10-27 04:24:45</td>
+      <td>40.781541</td>
+      <td>140.828896</td>
+      <td>189</td>
+      <td>2</td>
+      <td>60</td>
+      <td>127.0</td>
+      <td>Aomori, Japan</td>
+      <td>15.164024</td>
+      <td>1.058201</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>NaN</td>
+      <td>&lt;NA&gt;</td>
+      <td>Chiba</td>
+      <td>Japan</td>
+      <td>2020-10-27 04:24:45</td>
+      <td>35.510141</td>
+      <td>140.198917</td>
+      <td>4837</td>
+      <td>77</td>
+      <td>4336</td>
+      <td>424.0</td>
+      <td>Chiba, Japan</td>
+      <td>77.275999</td>
+      <td>1.591896</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>NaN</td>
+      <td>&lt;NA&gt;</td>
+      <td>Ehime</td>
+      <td>Japan</td>
+      <td>2020-10-27 04:24:45</td>
+      <td>33.624835</td>
+      <td>132.856842</td>
+      <td>116</td>
+      <td>6</td>
+      <td>110</td>
+      <td>0.0</td>
+      <td>Ehime, Japan</td>
+      <td>8.661791</td>
+      <td>5.172414</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>323</th>
+      <td>NaN</td>
+      <td>&lt;NA&gt;</td>
+      <td>&lt;NA&gt;</td>
+      <td>Taiwan*</td>
+      <td>2020-10-27 04:24:45</td>
+      <td>23.700000</td>
+      <td>121.000000</td>
+      <td>550</td>
+      <td>7</td>
+      <td>502</td>
+      <td>41.0</td>
+      <td>Taiwan*</td>
+      <td>2.309297</td>
+      <td>1.272727</td>
+      <td>NaN</td>
+      <td>Taiwan*</td>
+      <td>23.7</td>
+      <td>121.0</td>
+      <td>10/22/20</td>
+      <td>548.0</td>
+    </tr>
+    <tr>
+      <th>324</th>
+      <td>NaN</td>
+      <td>&lt;NA&gt;</td>
+      <td>&lt;NA&gt;</td>
+      <td>Taiwan*</td>
+      <td>2020-10-27 04:24:45</td>
+      <td>23.700000</td>
+      <td>121.000000</td>
+      <td>550</td>
+      <td>7</td>
+      <td>502</td>
+      <td>41.0</td>
+      <td>Taiwan*</td>
+      <td>2.309297</td>
+      <td>1.272727</td>
+      <td>NaN</td>
+      <td>Taiwan*</td>
+      <td>23.7</td>
+      <td>121.0</td>
+      <td>10/23/20</td>
+      <td>548.0</td>
+    </tr>
+    <tr>
+      <th>325</th>
+      <td>NaN</td>
+      <td>&lt;NA&gt;</td>
+      <td>&lt;NA&gt;</td>
+      <td>Taiwan*</td>
+      <td>2020-10-27 04:24:45</td>
+      <td>23.700000</td>
+      <td>121.000000</td>
+      <td>550</td>
+      <td>7</td>
+      <td>502</td>
+      <td>41.0</td>
+      <td>Taiwan*</td>
+      <td>2.309297</td>
+      <td>1.272727</td>
+      <td>NaN</td>
+      <td>Taiwan*</td>
+      <td>23.7</td>
+      <td>121.0</td>
+      <td>10/24/20</td>
+      <td>550.0</td>
+    </tr>
+    <tr>
+      <th>326</th>
+      <td>NaN</td>
+      <td>&lt;NA&gt;</td>
+      <td>&lt;NA&gt;</td>
+      <td>Taiwan*</td>
+      <td>2020-10-27 04:24:45</td>
+      <td>23.700000</td>
+      <td>121.000000</td>
+      <td>550</td>
+      <td>7</td>
+      <td>502</td>
+      <td>41.0</td>
+      <td>Taiwan*</td>
+      <td>2.309297</td>
+      <td>1.272727</td>
+      <td>NaN</td>
+      <td>Taiwan*</td>
+      <td>23.7</td>
+      <td>121.0</td>
+      <td>10/25/20</td>
+      <td>550.0</td>
+    </tr>
+    <tr>
+      <th>327</th>
+      <td>NaN</td>
+      <td>&lt;NA&gt;</td>
+      <td>&lt;NA&gt;</td>
+      <td>Taiwan*</td>
+      <td>2020-10-27 04:24:45</td>
+      <td>23.700000</td>
+      <td>121.000000</td>
+      <td>550</td>
+      <td>7</td>
+      <td>502</td>
+      <td>41.0</td>
+      <td>Taiwan*</td>
+      <td>2.309297</td>
+      <td>1.272727</td>
+      <td>NaN</td>
+      <td>Taiwan*</td>
+      <td>23.7</td>
+      <td>121.0</td>
+      <td>10/26/20</td>
+      <td>550.0</td>
+    </tr>
+  </tbody>
+</table>
+<p>328 rows × 20 columns</p>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div></section><section>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[46]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># right join</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">left_df</span><span class="p">,</span> <span class="n">right_df</span><span class="p">,</span> <span class="n">left_on</span><span class="o">=</span><span class="s1">&#39;Country_Region&#39;</span><span class="p">,</span> <span class="n">right_on</span><span class="o">=</span><span class="s1">&#39;Country/Region&#39;</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;right&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[46]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>FIPS</th>
+      <th>Admin2</th>
+      <th>Province_State</th>
+      <th>Country_Region</th>
+      <th>Last_Update</th>
+      <th>Lat_x</th>
+      <th>Long_</th>
+      <th>Confirmed_x</th>
+      <th>Deaths</th>
+      <th>Recovered</th>
+      <th>Active</th>
+      <th>Combined_Key</th>
+      <th>Incidence_Rate</th>
+      <th>Case-Fatality_Ratio</th>
+      <th>Province/State</th>
+      <th>Country/Region</th>
+      <th>Lat_y</th>
+      <th>Long</th>
+      <th>Date</th>
+      <th>Confirmed_y</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>NaN</td>
+      <td>&lt;NA&gt;</td>
+      <td>&lt;NA&gt;</td>
       <td>NaN</td>
       <td>&lt;NA&gt;</td>
       <td>NaN</td>
@@ -18717,123 +19051,123 @@ Name: Combined_Key, Length: 3958, dtype: string</pre>
       <td>...</td>
     </tr>
     <tr>
-      <th>543</th>
+      <th>553</th>
       <td>NaN</td>
       <td>&lt;NA&gt;</td>
       <td>&lt;NA&gt;</td>
       <td>Taiwan*</td>
-      <td>2020-10-22 04:24:27</td>
+      <td>2020-10-27 04:24:45</td>
       <td>23.7</td>
       <td>121.0</td>
-      <td>544.0</td>
+      <td>550.0</td>
       <td>7.0</td>
-      <td>495.0</td>
-      <td>42.0</td>
+      <td>502.0</td>
+      <td>41.0</td>
       <td>Taiwan*</td>
-      <td>2.284104</td>
-      <td>1.286765</td>
+      <td>2.309297</td>
+      <td>1.272727</td>
       <td>NaN</td>
       <td>Taiwan*</td>
       <td>23.700000</td>
       <td>121.000000</td>
-      <td>10/17/20</td>
-      <td>535</td>
+      <td>10/22/20</td>
+      <td>548</td>
     </tr>
     <tr>
-      <th>544</th>
+      <th>554</th>
       <td>NaN</td>
       <td>&lt;NA&gt;</td>
       <td>&lt;NA&gt;</td>
       <td>Taiwan*</td>
-      <td>2020-10-22 04:24:27</td>
+      <td>2020-10-27 04:24:45</td>
       <td>23.7</td>
       <td>121.0</td>
-      <td>544.0</td>
+      <td>550.0</td>
       <td>7.0</td>
-      <td>495.0</td>
-      <td>42.0</td>
+      <td>502.0</td>
+      <td>41.0</td>
       <td>Taiwan*</td>
-      <td>2.284104</td>
-      <td>1.286765</td>
+      <td>2.309297</td>
+      <td>1.272727</td>
       <td>NaN</td>
       <td>Taiwan*</td>
       <td>23.700000</td>
       <td>121.000000</td>
-      <td>10/18/20</td>
-      <td>535</td>
+      <td>10/23/20</td>
+      <td>548</td>
     </tr>
     <tr>
-      <th>545</th>
+      <th>555</th>
       <td>NaN</td>
       <td>&lt;NA&gt;</td>
       <td>&lt;NA&gt;</td>
       <td>Taiwan*</td>
-      <td>2020-10-22 04:24:27</td>
+      <td>2020-10-27 04:24:45</td>
       <td>23.7</td>
       <td>121.0</td>
-      <td>544.0</td>
+      <td>550.0</td>
       <td>7.0</td>
-      <td>495.0</td>
-      <td>42.0</td>
+      <td>502.0</td>
+      <td>41.0</td>
       <td>Taiwan*</td>
-      <td>2.284104</td>
-      <td>1.286765</td>
+      <td>2.309297</td>
+      <td>1.272727</td>
       <td>NaN</td>
       <td>Taiwan*</td>
       <td>23.700000</td>
       <td>121.000000</td>
-      <td>10/19/20</td>
-      <td>540</td>
+      <td>10/24/20</td>
+      <td>550</td>
     </tr>
     <tr>
-      <th>546</th>
+      <th>556</th>
       <td>NaN</td>
       <td>&lt;NA&gt;</td>
       <td>&lt;NA&gt;</td>
       <td>Taiwan*</td>
-      <td>2020-10-22 04:24:27</td>
+      <td>2020-10-27 04:24:45</td>
       <td>23.7</td>
       <td>121.0</td>
-      <td>544.0</td>
+      <td>550.0</td>
       <td>7.0</td>
-      <td>495.0</td>
-      <td>42.0</td>
+      <td>502.0</td>
+      <td>41.0</td>
       <td>Taiwan*</td>
-      <td>2.284104</td>
-      <td>1.286765</td>
+      <td>2.309297</td>
+      <td>1.272727</td>
       <td>NaN</td>
       <td>Taiwan*</td>
       <td>23.700000</td>
       <td>121.000000</td>
-      <td>10/20/20</td>
-      <td>543</td>
+      <td>10/25/20</td>
+      <td>550</td>
     </tr>
     <tr>
-      <th>547</th>
+      <th>557</th>
       <td>NaN</td>
       <td>&lt;NA&gt;</td>
       <td>&lt;NA&gt;</td>
       <td>Taiwan*</td>
-      <td>2020-10-22 04:24:27</td>
+      <td>2020-10-27 04:24:45</td>
       <td>23.7</td>
       <td>121.0</td>
-      <td>544.0</td>
+      <td>550.0</td>
       <td>7.0</td>
-      <td>495.0</td>
-      <td>42.0</td>
+      <td>502.0</td>
+      <td>41.0</td>
       <td>Taiwan*</td>
-      <td>2.284104</td>
-      <td>1.286765</td>
+      <td>2.309297</td>
+      <td>1.272727</td>
       <td>NaN</td>
       <td>Taiwan*</td>
       <td>23.700000</td>
       <td>121.000000</td>
-      <td>10/21/20</td>
-      <td>544</td>
+      <td>10/26/20</td>
+      <td>550</td>
     </tr>
   </tbody>
 </table>
-<p>548 rows × 20 columns</p>
+<p>558 rows × 20 columns</p>
 </div>
 </div>
 
@@ -18852,7 +19186,7 @@ Name: Combined_Key, Length: 3958, dtype: string</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[45]:</div>
+<div class="prompt input_prompt">In&nbsp;[47]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">left_df</span> <span class="o">=</span> <span class="n">daily_report</span><span class="p">[</span><span class="n">daily_report</span><span class="p">[</span><span class="s1">&#39;Country_Region&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">([</span><span class="s1">&#39;Taiwan*&#39;</span><span class="p">,</span> <span class="s1">&#39;Japan&#39;</span><span class="p">])]</span>
@@ -18868,623 +19202,11 @@ Name: Combined_Key, Length: 3958, dtype: string</pre>
 </div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[46]:</div>
+<div class="prompt input_prompt">In&nbsp;[48]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># default: left join</span>
 <span class="n">left_df</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">right_df</span><span class="p">,</span> <span class="n">lsuffix</span><span class="o">=</span><span class="s1">&#39;_x&#39;</span><span class="p">,</span> <span class="n">rsuffix</span><span class="o">=</span><span class="s1">&#39;_y&#39;</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[46]:</div>
-
-
-
-<div class="output_html rendered_html output_subarea output_execute_result">
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>FIPS</th>
-      <th>Admin2</th>
-      <th>Province_State</th>
-      <th>Last_Update</th>
-      <th>Lat_x</th>
-      <th>Long_</th>
-      <th>Confirmed_x</th>
-      <th>Deaths</th>
-      <th>Recovered</th>
-      <th>Active</th>
-      <th>Combined_Key</th>
-      <th>Incidence_Rate</th>
-      <th>Case-Fatality_Ratio</th>
-      <th>Province/State</th>
-      <th>Lat_y</th>
-      <th>Long</th>
-      <th>Date</th>
-      <th>Confirmed_y</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>Japan</th>
-      <td>NaN</td>
-      <td>&lt;NA&gt;</td>
-      <td>Aichi</td>
-      <td>2020-10-22 04:24:27</td>
-      <td>35.035551</td>
-      <td>137.211621</td>
-      <td>5756</td>
-      <td>90</td>
-      <td>5376</td>
-      <td>290.0</td>
-      <td>Aichi, Japan</td>
-      <td>76.215808</td>
-      <td>1.563586</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>Japan</th>
-      <td>NaN</td>
-      <td>&lt;NA&gt;</td>
-      <td>Akita</td>
-      <td>2020-10-22 04:24:27</td>
-      <td>39.748679</td>
-      <td>140.408228</td>
-      <td>61</td>
-      <td>0</td>
-      <td>59</td>
-      <td>2.0</td>
-      <td>Akita, Japan</td>
-      <td>6.311498</td>
-      <td>0.000000</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>Japan</th>
-      <td>NaN</td>
-      <td>&lt;NA&gt;</td>
-      <td>Aomori</td>
-      <td>2020-10-22 04:24:27</td>
-      <td>40.781541</td>
-      <td>140.828896</td>
-      <td>143</td>
-      <td>1</td>
-      <td>36</td>
-      <td>106.0</td>
-      <td>Aomori, Japan</td>
-      <td>11.473309</td>
-      <td>0.699301</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>Japan</th>
-      <td>NaN</td>
-      <td>&lt;NA&gt;</td>
-      <td>Chiba</td>
-      <td>2020-10-22 04:24:27</td>
-      <td>35.510141</td>
-      <td>140.198917</td>
-      <td>4638</td>
-      <td>76</td>
-      <td>4175</td>
-      <td>387.0</td>
-      <td>Chiba, Japan</td>
-      <td>74.096772</td>
-      <td>1.638637</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>Japan</th>
-      <td>NaN</td>
-      <td>&lt;NA&gt;</td>
-      <td>Ehime</td>
-      <td>2020-10-22 04:24:27</td>
-      <td>33.624835</td>
-      <td>132.856842</td>
-      <td>116</td>
-      <td>6</td>
-      <td>108</td>
-      <td>2.0</td>
-      <td>Ehime, Japan</td>
-      <td>8.661791</td>
-      <td>5.172414</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <th>Taiwan*</th>
-      <td>NaN</td>
-      <td>&lt;NA&gt;</td>
-      <td>&lt;NA&gt;</td>
-      <td>2020-10-22 04:24:27</td>
-      <td>23.700000</td>
-      <td>121.000000</td>
-      <td>544</td>
-      <td>7</td>
-      <td>495</td>
-      <td>42.0</td>
-      <td>Taiwan*</td>
-      <td>2.284104</td>
-      <td>1.286765</td>
-      <td>NaN</td>
-      <td>23.7</td>
-      <td>121.0</td>
-      <td>10/17/20</td>
-      <td>535.0</td>
-    </tr>
-    <tr>
-      <th>Taiwan*</th>
-      <td>NaN</td>
-      <td>&lt;NA&gt;</td>
-      <td>&lt;NA&gt;</td>
-      <td>2020-10-22 04:24:27</td>
-      <td>23.700000</td>
-      <td>121.000000</td>
-      <td>544</td>
-      <td>7</td>
-      <td>495</td>
-      <td>42.0</td>
-      <td>Taiwan*</td>
-      <td>2.284104</td>
-      <td>1.286765</td>
-      <td>NaN</td>
-      <td>23.7</td>
-      <td>121.0</td>
-      <td>10/18/20</td>
-      <td>535.0</td>
-    </tr>
-    <tr>
-      <th>Taiwan*</th>
-      <td>NaN</td>
-      <td>&lt;NA&gt;</td>
-      <td>&lt;NA&gt;</td>
-      <td>2020-10-22 04:24:27</td>
-      <td>23.700000</td>
-      <td>121.000000</td>
-      <td>544</td>
-      <td>7</td>
-      <td>495</td>
-      <td>42.0</td>
-      <td>Taiwan*</td>
-      <td>2.284104</td>
-      <td>1.286765</td>
-      <td>NaN</td>
-      <td>23.7</td>
-      <td>121.0</td>
-      <td>10/19/20</td>
-      <td>540.0</td>
-    </tr>
-    <tr>
-      <th>Taiwan*</th>
-      <td>NaN</td>
-      <td>&lt;NA&gt;</td>
-      <td>&lt;NA&gt;</td>
-      <td>2020-10-22 04:24:27</td>
-      <td>23.700000</td>
-      <td>121.000000</td>
-      <td>544</td>
-      <td>7</td>
-      <td>495</td>
-      <td>42.0</td>
-      <td>Taiwan*</td>
-      <td>2.284104</td>
-      <td>1.286765</td>
-      <td>NaN</td>
-      <td>23.7</td>
-      <td>121.0</td>
-      <td>10/20/20</td>
-      <td>543.0</td>
-    </tr>
-    <tr>
-      <th>Taiwan*</th>
-      <td>NaN</td>
-      <td>&lt;NA&gt;</td>
-      <td>&lt;NA&gt;</td>
-      <td>2020-10-22 04:24:27</td>
-      <td>23.700000</td>
-      <td>121.000000</td>
-      <td>544</td>
-      <td>7</td>
-      <td>495</td>
-      <td>42.0</td>
-      <td>Taiwan*</td>
-      <td>2.284104</td>
-      <td>1.286765</td>
-      <td>NaN</td>
-      <td>23.7</td>
-      <td>121.0</td>
-      <td>10/21/20</td>
-      <td>544.0</td>
-    </tr>
-  </tbody>
-</table>
-<p>323 rows × 18 columns</p>
-</div>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div></section><section>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[47]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># inner join</span>
-<span class="n">left_df</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">right_df</span><span class="p">,</span> <span class="n">lsuffix</span><span class="o">=</span><span class="s1">&#39;_x&#39;</span><span class="p">,</span> <span class="n">rsuffix</span><span class="o">=</span><span class="s1">&#39;_y&#39;</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;inner&#39;</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[47]:</div>
-
-
-
-<div class="output_html rendered_html output_subarea output_execute_result">
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>FIPS</th>
-      <th>Admin2</th>
-      <th>Province_State</th>
-      <th>Last_Update</th>
-      <th>Lat_x</th>
-      <th>Long_</th>
-      <th>Confirmed_x</th>
-      <th>Deaths</th>
-      <th>Recovered</th>
-      <th>Active</th>
-      <th>Combined_Key</th>
-      <th>Incidence_Rate</th>
-      <th>Case-Fatality_Ratio</th>
-      <th>Province/State</th>
-      <th>Lat_y</th>
-      <th>Long</th>
-      <th>Date</th>
-      <th>Confirmed_y</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>Taiwan*</th>
-      <td>NaN</td>
-      <td>&lt;NA&gt;</td>
-      <td>&lt;NA&gt;</td>
-      <td>2020-10-22 04:24:27</td>
-      <td>23.7</td>
-      <td>121.0</td>
-      <td>544</td>
-      <td>7</td>
-      <td>495</td>
-      <td>42.0</td>
-      <td>Taiwan*</td>
-      <td>2.284104</td>
-      <td>1.286765</td>
-      <td>NaN</td>
-      <td>23.7</td>
-      <td>121.0</td>
-      <td>1/22/20</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>Taiwan*</th>
-      <td>NaN</td>
-      <td>&lt;NA&gt;</td>
-      <td>&lt;NA&gt;</td>
-      <td>2020-10-22 04:24:27</td>
-      <td>23.7</td>
-      <td>121.0</td>
-      <td>544</td>
-      <td>7</td>
-      <td>495</td>
-      <td>42.0</td>
-      <td>Taiwan*</td>
-      <td>2.284104</td>
-      <td>1.286765</td>
-      <td>NaN</td>
-      <td>23.7</td>
-      <td>121.0</td>
-      <td>1/23/20</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>Taiwan*</th>
-      <td>NaN</td>
-      <td>&lt;NA&gt;</td>
-      <td>&lt;NA&gt;</td>
-      <td>2020-10-22 04:24:27</td>
-      <td>23.7</td>
-      <td>121.0</td>
-      <td>544</td>
-      <td>7</td>
-      <td>495</td>
-      <td>42.0</td>
-      <td>Taiwan*</td>
-      <td>2.284104</td>
-      <td>1.286765</td>
-      <td>NaN</td>
-      <td>23.7</td>
-      <td>121.0</td>
-      <td>1/24/20</td>
-      <td>3</td>
-    </tr>
-    <tr>
-      <th>Taiwan*</th>
-      <td>NaN</td>
-      <td>&lt;NA&gt;</td>
-      <td>&lt;NA&gt;</td>
-      <td>2020-10-22 04:24:27</td>
-      <td>23.7</td>
-      <td>121.0</td>
-      <td>544</td>
-      <td>7</td>
-      <td>495</td>
-      <td>42.0</td>
-      <td>Taiwan*</td>
-      <td>2.284104</td>
-      <td>1.286765</td>
-      <td>NaN</td>
-      <td>23.7</td>
-      <td>121.0</td>
-      <td>1/25/20</td>
-      <td>3</td>
-    </tr>
-    <tr>
-      <th>Taiwan*</th>
-      <td>NaN</td>
-      <td>&lt;NA&gt;</td>
-      <td>&lt;NA&gt;</td>
-      <td>2020-10-22 04:24:27</td>
-      <td>23.7</td>
-      <td>121.0</td>
-      <td>544</td>
-      <td>7</td>
-      <td>495</td>
-      <td>42.0</td>
-      <td>Taiwan*</td>
-      <td>2.284104</td>
-      <td>1.286765</td>
-      <td>NaN</td>
-      <td>23.7</td>
-      <td>121.0</td>
-      <td>1/26/20</td>
-      <td>4</td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <th>Taiwan*</th>
-      <td>NaN</td>
-      <td>&lt;NA&gt;</td>
-      <td>&lt;NA&gt;</td>
-      <td>2020-10-22 04:24:27</td>
-      <td>23.7</td>
-      <td>121.0</td>
-      <td>544</td>
-      <td>7</td>
-      <td>495</td>
-      <td>42.0</td>
-      <td>Taiwan*</td>
-      <td>2.284104</td>
-      <td>1.286765</td>
-      <td>NaN</td>
-      <td>23.7</td>
-      <td>121.0</td>
-      <td>10/17/20</td>
-      <td>535</td>
-    </tr>
-    <tr>
-      <th>Taiwan*</th>
-      <td>NaN</td>
-      <td>&lt;NA&gt;</td>
-      <td>&lt;NA&gt;</td>
-      <td>2020-10-22 04:24:27</td>
-      <td>23.7</td>
-      <td>121.0</td>
-      <td>544</td>
-      <td>7</td>
-      <td>495</td>
-      <td>42.0</td>
-      <td>Taiwan*</td>
-      <td>2.284104</td>
-      <td>1.286765</td>
-      <td>NaN</td>
-      <td>23.7</td>
-      <td>121.0</td>
-      <td>10/18/20</td>
-      <td>535</td>
-    </tr>
-    <tr>
-      <th>Taiwan*</th>
-      <td>NaN</td>
-      <td>&lt;NA&gt;</td>
-      <td>&lt;NA&gt;</td>
-      <td>2020-10-22 04:24:27</td>
-      <td>23.7</td>
-      <td>121.0</td>
-      <td>544</td>
-      <td>7</td>
-      <td>495</td>
-      <td>42.0</td>
-      <td>Taiwan*</td>
-      <td>2.284104</td>
-      <td>1.286765</td>
-      <td>NaN</td>
-      <td>23.7</td>
-      <td>121.0</td>
-      <td>10/19/20</td>
-      <td>540</td>
-    </tr>
-    <tr>
-      <th>Taiwan*</th>
-      <td>NaN</td>
-      <td>&lt;NA&gt;</td>
-      <td>&lt;NA&gt;</td>
-      <td>2020-10-22 04:24:27</td>
-      <td>23.7</td>
-      <td>121.0</td>
-      <td>544</td>
-      <td>7</td>
-      <td>495</td>
-      <td>42.0</td>
-      <td>Taiwan*</td>
-      <td>2.284104</td>
-      <td>1.286765</td>
-      <td>NaN</td>
-      <td>23.7</td>
-      <td>121.0</td>
-      <td>10/20/20</td>
-      <td>543</td>
-    </tr>
-    <tr>
-      <th>Taiwan*</th>
-      <td>NaN</td>
-      <td>&lt;NA&gt;</td>
-      <td>&lt;NA&gt;</td>
-      <td>2020-10-22 04:24:27</td>
-      <td>23.7</td>
-      <td>121.0</td>
-      <td>544</td>
-      <td>7</td>
-      <td>495</td>
-      <td>42.0</td>
-      <td>Taiwan*</td>
-      <td>2.284104</td>
-      <td>1.286765</td>
-      <td>NaN</td>
-      <td>23.7</td>
-      <td>121.0</td>
-      <td>10/21/20</td>
-      <td>544</td>
-    </tr>
-  </tbody>
-</table>
-<p>274 rows × 18 columns</p>
-</div>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div></section><section>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[48]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># inner join</span>
-<span class="n">left_df</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">right_df</span><span class="p">,</span> <span class="n">lsuffix</span><span class="o">=</span><span class="s1">&#39;_x&#39;</span><span class="p">,</span> <span class="n">rsuffix</span><span class="o">=</span><span class="s1">&#39;_y&#39;</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;inner&#39;</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -19542,20 +19264,326 @@ Name: Combined_Key, Length: 3958, dtype: string</pre>
   </thead>
   <tbody>
     <tr>
+      <th>Japan</th>
+      <td>NaN</td>
+      <td>&lt;NA&gt;</td>
+      <td>Aichi</td>
+      <td>2020-10-27 04:24:45</td>
+      <td>35.035551</td>
+      <td>137.211621</td>
+      <td>5913</td>
+      <td>91</td>
+      <td>5499</td>
+      <td>323.0</td>
+      <td>Aichi, Japan</td>
+      <td>78.294662</td>
+      <td>1.538982</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>Japan</th>
+      <td>NaN</td>
+      <td>&lt;NA&gt;</td>
+      <td>Akita</td>
+      <td>2020-10-27 04:24:45</td>
+      <td>39.748679</td>
+      <td>140.408228</td>
+      <td>61</td>
+      <td>0</td>
+      <td>59</td>
+      <td>2.0</td>
+      <td>Akita, Japan</td>
+      <td>6.311498</td>
+      <td>0.000000</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>Japan</th>
+      <td>NaN</td>
+      <td>&lt;NA&gt;</td>
+      <td>Aomori</td>
+      <td>2020-10-27 04:24:45</td>
+      <td>40.781541</td>
+      <td>140.828896</td>
+      <td>189</td>
+      <td>2</td>
+      <td>60</td>
+      <td>127.0</td>
+      <td>Aomori, Japan</td>
+      <td>15.164024</td>
+      <td>1.058201</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>Japan</th>
+      <td>NaN</td>
+      <td>&lt;NA&gt;</td>
+      <td>Chiba</td>
+      <td>2020-10-27 04:24:45</td>
+      <td>35.510141</td>
+      <td>140.198917</td>
+      <td>4837</td>
+      <td>77</td>
+      <td>4336</td>
+      <td>424.0</td>
+      <td>Chiba, Japan</td>
+      <td>77.275999</td>
+      <td>1.591896</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>Japan</th>
+      <td>NaN</td>
+      <td>&lt;NA&gt;</td>
+      <td>Ehime</td>
+      <td>2020-10-27 04:24:45</td>
+      <td>33.624835</td>
+      <td>132.856842</td>
+      <td>116</td>
+      <td>6</td>
+      <td>110</td>
+      <td>0.0</td>
+      <td>Ehime, Japan</td>
+      <td>8.661791</td>
+      <td>5.172414</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
       <th>Taiwan*</th>
       <td>NaN</td>
       <td>&lt;NA&gt;</td>
       <td>&lt;NA&gt;</td>
-      <td>2020-10-22 04:24:27</td>
+      <td>2020-10-27 04:24:45</td>
+      <td>23.700000</td>
+      <td>121.000000</td>
+      <td>550</td>
+      <td>7</td>
+      <td>502</td>
+      <td>41.0</td>
+      <td>Taiwan*</td>
+      <td>2.309297</td>
+      <td>1.272727</td>
+      <td>NaN</td>
       <td>23.7</td>
       <td>121.0</td>
-      <td>544</td>
+      <td>10/22/20</td>
+      <td>548.0</td>
+    </tr>
+    <tr>
+      <th>Taiwan*</th>
+      <td>NaN</td>
+      <td>&lt;NA&gt;</td>
+      <td>&lt;NA&gt;</td>
+      <td>2020-10-27 04:24:45</td>
+      <td>23.700000</td>
+      <td>121.000000</td>
+      <td>550</td>
       <td>7</td>
-      <td>495</td>
-      <td>42.0</td>
+      <td>502</td>
+      <td>41.0</td>
       <td>Taiwan*</td>
-      <td>2.284104</td>
-      <td>1.286765</td>
+      <td>2.309297</td>
+      <td>1.272727</td>
+      <td>NaN</td>
+      <td>23.7</td>
+      <td>121.0</td>
+      <td>10/23/20</td>
+      <td>548.0</td>
+    </tr>
+    <tr>
+      <th>Taiwan*</th>
+      <td>NaN</td>
+      <td>&lt;NA&gt;</td>
+      <td>&lt;NA&gt;</td>
+      <td>2020-10-27 04:24:45</td>
+      <td>23.700000</td>
+      <td>121.000000</td>
+      <td>550</td>
+      <td>7</td>
+      <td>502</td>
+      <td>41.0</td>
+      <td>Taiwan*</td>
+      <td>2.309297</td>
+      <td>1.272727</td>
+      <td>NaN</td>
+      <td>23.7</td>
+      <td>121.0</td>
+      <td>10/24/20</td>
+      <td>550.0</td>
+    </tr>
+    <tr>
+      <th>Taiwan*</th>
+      <td>NaN</td>
+      <td>&lt;NA&gt;</td>
+      <td>&lt;NA&gt;</td>
+      <td>2020-10-27 04:24:45</td>
+      <td>23.700000</td>
+      <td>121.000000</td>
+      <td>550</td>
+      <td>7</td>
+      <td>502</td>
+      <td>41.0</td>
+      <td>Taiwan*</td>
+      <td>2.309297</td>
+      <td>1.272727</td>
+      <td>NaN</td>
+      <td>23.7</td>
+      <td>121.0</td>
+      <td>10/25/20</td>
+      <td>550.0</td>
+    </tr>
+    <tr>
+      <th>Taiwan*</th>
+      <td>NaN</td>
+      <td>&lt;NA&gt;</td>
+      <td>&lt;NA&gt;</td>
+      <td>2020-10-27 04:24:45</td>
+      <td>23.700000</td>
+      <td>121.000000</td>
+      <td>550</td>
+      <td>7</td>
+      <td>502</td>
+      <td>41.0</td>
+      <td>Taiwan*</td>
+      <td>2.309297</td>
+      <td>1.272727</td>
+      <td>NaN</td>
+      <td>23.7</td>
+      <td>121.0</td>
+      <td>10/26/20</td>
+      <td>550.0</td>
+    </tr>
+  </tbody>
+</table>
+<p>328 rows × 18 columns</p>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div></section><section>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[49]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># inner join</span>
+<span class="n">left_df</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">right_df</span><span class="p">,</span> <span class="n">lsuffix</span><span class="o">=</span><span class="s1">&#39;_x&#39;</span><span class="p">,</span> <span class="n">rsuffix</span><span class="o">=</span><span class="s1">&#39;_y&#39;</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;inner&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[49]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>FIPS</th>
+      <th>Admin2</th>
+      <th>Province_State</th>
+      <th>Last_Update</th>
+      <th>Lat_x</th>
+      <th>Long_</th>
+      <th>Confirmed_x</th>
+      <th>Deaths</th>
+      <th>Recovered</th>
+      <th>Active</th>
+      <th>Combined_Key</th>
+      <th>Incidence_Rate</th>
+      <th>Case-Fatality_Ratio</th>
+      <th>Province/State</th>
+      <th>Lat_y</th>
+      <th>Long</th>
+      <th>Date</th>
+      <th>Confirmed_y</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Taiwan*</th>
+      <td>NaN</td>
+      <td>&lt;NA&gt;</td>
+      <td>&lt;NA&gt;</td>
+      <td>2020-10-27 04:24:45</td>
+      <td>23.7</td>
+      <td>121.0</td>
+      <td>550</td>
+      <td>7</td>
+      <td>502</td>
+      <td>41.0</td>
+      <td>Taiwan*</td>
+      <td>2.309297</td>
+      <td>1.272727</td>
       <td>NaN</td>
       <td>23.7</td>
       <td>121.0</td>
@@ -19567,16 +19595,16 @@ Name: Combined_Key, Length: 3958, dtype: string</pre>
       <td>NaN</td>
       <td>&lt;NA&gt;</td>
       <td>&lt;NA&gt;</td>
-      <td>2020-10-22 04:24:27</td>
+      <td>2020-10-27 04:24:45</td>
       <td>23.7</td>
       <td>121.0</td>
-      <td>544</td>
+      <td>550</td>
       <td>7</td>
-      <td>495</td>
-      <td>42.0</td>
+      <td>502</td>
+      <td>41.0</td>
       <td>Taiwan*</td>
-      <td>2.284104</td>
-      <td>1.286765</td>
+      <td>2.309297</td>
+      <td>1.272727</td>
       <td>NaN</td>
       <td>23.7</td>
       <td>121.0</td>
@@ -19588,16 +19616,16 @@ Name: Combined_Key, Length: 3958, dtype: string</pre>
       <td>NaN</td>
       <td>&lt;NA&gt;</td>
       <td>&lt;NA&gt;</td>
-      <td>2020-10-22 04:24:27</td>
+      <td>2020-10-27 04:24:45</td>
       <td>23.7</td>
       <td>121.0</td>
-      <td>544</td>
+      <td>550</td>
       <td>7</td>
-      <td>495</td>
-      <td>42.0</td>
+      <td>502</td>
+      <td>41.0</td>
       <td>Taiwan*</td>
-      <td>2.284104</td>
-      <td>1.286765</td>
+      <td>2.309297</td>
+      <td>1.272727</td>
       <td>NaN</td>
       <td>23.7</td>
       <td>121.0</td>
@@ -19609,16 +19637,16 @@ Name: Combined_Key, Length: 3958, dtype: string</pre>
       <td>NaN</td>
       <td>&lt;NA&gt;</td>
       <td>&lt;NA&gt;</td>
-      <td>2020-10-22 04:24:27</td>
+      <td>2020-10-27 04:24:45</td>
       <td>23.7</td>
       <td>121.0</td>
-      <td>544</td>
+      <td>550</td>
       <td>7</td>
-      <td>495</td>
-      <td>42.0</td>
+      <td>502</td>
+      <td>41.0</td>
       <td>Taiwan*</td>
-      <td>2.284104</td>
-      <td>1.286765</td>
+      <td>2.309297</td>
+      <td>1.272727</td>
       <td>NaN</td>
       <td>23.7</td>
       <td>121.0</td>
@@ -19630,16 +19658,16 @@ Name: Combined_Key, Length: 3958, dtype: string</pre>
       <td>NaN</td>
       <td>&lt;NA&gt;</td>
       <td>&lt;NA&gt;</td>
-      <td>2020-10-22 04:24:27</td>
+      <td>2020-10-27 04:24:45</td>
       <td>23.7</td>
       <td>121.0</td>
-      <td>544</td>
+      <td>550</td>
       <td>7</td>
-      <td>495</td>
-      <td>42.0</td>
+      <td>502</td>
+      <td>41.0</td>
       <td>Taiwan*</td>
-      <td>2.284104</td>
-      <td>1.286765</td>
+      <td>2.309297</td>
+      <td>1.272727</td>
       <td>NaN</td>
       <td>23.7</td>
       <td>121.0</td>
@@ -19672,109 +19700,109 @@ Name: Combined_Key, Length: 3958, dtype: string</pre>
       <td>NaN</td>
       <td>&lt;NA&gt;</td>
       <td>&lt;NA&gt;</td>
-      <td>2020-10-22 04:24:27</td>
+      <td>2020-10-27 04:24:45</td>
       <td>23.7</td>
       <td>121.0</td>
-      <td>544</td>
+      <td>550</td>
       <td>7</td>
-      <td>495</td>
-      <td>42.0</td>
+      <td>502</td>
+      <td>41.0</td>
       <td>Taiwan*</td>
-      <td>2.284104</td>
-      <td>1.286765</td>
+      <td>2.309297</td>
+      <td>1.272727</td>
       <td>NaN</td>
       <td>23.7</td>
       <td>121.0</td>
-      <td>10/17/20</td>
-      <td>535</td>
+      <td>10/22/20</td>
+      <td>548</td>
     </tr>
     <tr>
       <th>Taiwan*</th>
       <td>NaN</td>
       <td>&lt;NA&gt;</td>
       <td>&lt;NA&gt;</td>
-      <td>2020-10-22 04:24:27</td>
+      <td>2020-10-27 04:24:45</td>
       <td>23.7</td>
       <td>121.0</td>
-      <td>544</td>
+      <td>550</td>
       <td>7</td>
-      <td>495</td>
-      <td>42.0</td>
+      <td>502</td>
+      <td>41.0</td>
       <td>Taiwan*</td>
-      <td>2.284104</td>
-      <td>1.286765</td>
+      <td>2.309297</td>
+      <td>1.272727</td>
       <td>NaN</td>
       <td>23.7</td>
       <td>121.0</td>
-      <td>10/18/20</td>
-      <td>535</td>
+      <td>10/23/20</td>
+      <td>548</td>
     </tr>
     <tr>
       <th>Taiwan*</th>
       <td>NaN</td>
       <td>&lt;NA&gt;</td>
       <td>&lt;NA&gt;</td>
-      <td>2020-10-22 04:24:27</td>
+      <td>2020-10-27 04:24:45</td>
       <td>23.7</td>
       <td>121.0</td>
-      <td>544</td>
+      <td>550</td>
       <td>7</td>
-      <td>495</td>
-      <td>42.0</td>
+      <td>502</td>
+      <td>41.0</td>
       <td>Taiwan*</td>
-      <td>2.284104</td>
-      <td>1.286765</td>
+      <td>2.309297</td>
+      <td>1.272727</td>
       <td>NaN</td>
       <td>23.7</td>
       <td>121.0</td>
-      <td>10/19/20</td>
-      <td>540</td>
+      <td>10/24/20</td>
+      <td>550</td>
     </tr>
     <tr>
       <th>Taiwan*</th>
       <td>NaN</td>
       <td>&lt;NA&gt;</td>
       <td>&lt;NA&gt;</td>
-      <td>2020-10-22 04:24:27</td>
+      <td>2020-10-27 04:24:45</td>
       <td>23.7</td>
       <td>121.0</td>
-      <td>544</td>
+      <td>550</td>
       <td>7</td>
-      <td>495</td>
-      <td>42.0</td>
+      <td>502</td>
+      <td>41.0</td>
       <td>Taiwan*</td>
-      <td>2.284104</td>
-      <td>1.286765</td>
+      <td>2.309297</td>
+      <td>1.272727</td>
       <td>NaN</td>
       <td>23.7</td>
       <td>121.0</td>
-      <td>10/20/20</td>
-      <td>543</td>
+      <td>10/25/20</td>
+      <td>550</td>
     </tr>
     <tr>
       <th>Taiwan*</th>
       <td>NaN</td>
       <td>&lt;NA&gt;</td>
       <td>&lt;NA&gt;</td>
-      <td>2020-10-22 04:24:27</td>
+      <td>2020-10-27 04:24:45</td>
       <td>23.7</td>
       <td>121.0</td>
-      <td>544</td>
+      <td>550</td>
       <td>7</td>
-      <td>495</td>
-      <td>42.0</td>
+      <td>502</td>
+      <td>41.0</td>
       <td>Taiwan*</td>
-      <td>2.284104</td>
-      <td>1.286765</td>
+      <td>2.309297</td>
+      <td>1.272727</td>
       <td>NaN</td>
       <td>23.7</td>
       <td>121.0</td>
-      <td>10/21/20</td>
-      <td>544</td>
+      <td>10/26/20</td>
+      <td>550</td>
     </tr>
   </tbody>
 </table>
-<p>274 rows × 18 columns</p>
+<p>279 rows × 18 columns</p>
 </div>
 </div>
 
@@ -19786,7 +19814,313 @@ Name: Combined_Key, Length: 3958, dtype: string</pre>
 </div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[49]:</div>
+<div class="prompt input_prompt">In&nbsp;[50]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># inner join</span>
+<span class="n">left_df</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">right_df</span><span class="p">,</span> <span class="n">lsuffix</span><span class="o">=</span><span class="s1">&#39;_x&#39;</span><span class="p">,</span> <span class="n">rsuffix</span><span class="o">=</span><span class="s1">&#39;_y&#39;</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;inner&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[50]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>FIPS</th>
+      <th>Admin2</th>
+      <th>Province_State</th>
+      <th>Last_Update</th>
+      <th>Lat_x</th>
+      <th>Long_</th>
+      <th>Confirmed_x</th>
+      <th>Deaths</th>
+      <th>Recovered</th>
+      <th>Active</th>
+      <th>Combined_Key</th>
+      <th>Incidence_Rate</th>
+      <th>Case-Fatality_Ratio</th>
+      <th>Province/State</th>
+      <th>Lat_y</th>
+      <th>Long</th>
+      <th>Date</th>
+      <th>Confirmed_y</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Taiwan*</th>
+      <td>NaN</td>
+      <td>&lt;NA&gt;</td>
+      <td>&lt;NA&gt;</td>
+      <td>2020-10-27 04:24:45</td>
+      <td>23.7</td>
+      <td>121.0</td>
+      <td>550</td>
+      <td>7</td>
+      <td>502</td>
+      <td>41.0</td>
+      <td>Taiwan*</td>
+      <td>2.309297</td>
+      <td>1.272727</td>
+      <td>NaN</td>
+      <td>23.7</td>
+      <td>121.0</td>
+      <td>1/22/20</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>Taiwan*</th>
+      <td>NaN</td>
+      <td>&lt;NA&gt;</td>
+      <td>&lt;NA&gt;</td>
+      <td>2020-10-27 04:24:45</td>
+      <td>23.7</td>
+      <td>121.0</td>
+      <td>550</td>
+      <td>7</td>
+      <td>502</td>
+      <td>41.0</td>
+      <td>Taiwan*</td>
+      <td>2.309297</td>
+      <td>1.272727</td>
+      <td>NaN</td>
+      <td>23.7</td>
+      <td>121.0</td>
+      <td>1/23/20</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>Taiwan*</th>
+      <td>NaN</td>
+      <td>&lt;NA&gt;</td>
+      <td>&lt;NA&gt;</td>
+      <td>2020-10-27 04:24:45</td>
+      <td>23.7</td>
+      <td>121.0</td>
+      <td>550</td>
+      <td>7</td>
+      <td>502</td>
+      <td>41.0</td>
+      <td>Taiwan*</td>
+      <td>2.309297</td>
+      <td>1.272727</td>
+      <td>NaN</td>
+      <td>23.7</td>
+      <td>121.0</td>
+      <td>1/24/20</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>Taiwan*</th>
+      <td>NaN</td>
+      <td>&lt;NA&gt;</td>
+      <td>&lt;NA&gt;</td>
+      <td>2020-10-27 04:24:45</td>
+      <td>23.7</td>
+      <td>121.0</td>
+      <td>550</td>
+      <td>7</td>
+      <td>502</td>
+      <td>41.0</td>
+      <td>Taiwan*</td>
+      <td>2.309297</td>
+      <td>1.272727</td>
+      <td>NaN</td>
+      <td>23.7</td>
+      <td>121.0</td>
+      <td>1/25/20</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>Taiwan*</th>
+      <td>NaN</td>
+      <td>&lt;NA&gt;</td>
+      <td>&lt;NA&gt;</td>
+      <td>2020-10-27 04:24:45</td>
+      <td>23.7</td>
+      <td>121.0</td>
+      <td>550</td>
+      <td>7</td>
+      <td>502</td>
+      <td>41.0</td>
+      <td>Taiwan*</td>
+      <td>2.309297</td>
+      <td>1.272727</td>
+      <td>NaN</td>
+      <td>23.7</td>
+      <td>121.0</td>
+      <td>1/26/20</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>Taiwan*</th>
+      <td>NaN</td>
+      <td>&lt;NA&gt;</td>
+      <td>&lt;NA&gt;</td>
+      <td>2020-10-27 04:24:45</td>
+      <td>23.7</td>
+      <td>121.0</td>
+      <td>550</td>
+      <td>7</td>
+      <td>502</td>
+      <td>41.0</td>
+      <td>Taiwan*</td>
+      <td>2.309297</td>
+      <td>1.272727</td>
+      <td>NaN</td>
+      <td>23.7</td>
+      <td>121.0</td>
+      <td>10/22/20</td>
+      <td>548</td>
+    </tr>
+    <tr>
+      <th>Taiwan*</th>
+      <td>NaN</td>
+      <td>&lt;NA&gt;</td>
+      <td>&lt;NA&gt;</td>
+      <td>2020-10-27 04:24:45</td>
+      <td>23.7</td>
+      <td>121.0</td>
+      <td>550</td>
+      <td>7</td>
+      <td>502</td>
+      <td>41.0</td>
+      <td>Taiwan*</td>
+      <td>2.309297</td>
+      <td>1.272727</td>
+      <td>NaN</td>
+      <td>23.7</td>
+      <td>121.0</td>
+      <td>10/23/20</td>
+      <td>548</td>
+    </tr>
+    <tr>
+      <th>Taiwan*</th>
+      <td>NaN</td>
+      <td>&lt;NA&gt;</td>
+      <td>&lt;NA&gt;</td>
+      <td>2020-10-27 04:24:45</td>
+      <td>23.7</td>
+      <td>121.0</td>
+      <td>550</td>
+      <td>7</td>
+      <td>502</td>
+      <td>41.0</td>
+      <td>Taiwan*</td>
+      <td>2.309297</td>
+      <td>1.272727</td>
+      <td>NaN</td>
+      <td>23.7</td>
+      <td>121.0</td>
+      <td>10/24/20</td>
+      <td>550</td>
+    </tr>
+    <tr>
+      <th>Taiwan*</th>
+      <td>NaN</td>
+      <td>&lt;NA&gt;</td>
+      <td>&lt;NA&gt;</td>
+      <td>2020-10-27 04:24:45</td>
+      <td>23.7</td>
+      <td>121.0</td>
+      <td>550</td>
+      <td>7</td>
+      <td>502</td>
+      <td>41.0</td>
+      <td>Taiwan*</td>
+      <td>2.309297</td>
+      <td>1.272727</td>
+      <td>NaN</td>
+      <td>23.7</td>
+      <td>121.0</td>
+      <td>10/25/20</td>
+      <td>550</td>
+    </tr>
+    <tr>
+      <th>Taiwan*</th>
+      <td>NaN</td>
+      <td>&lt;NA&gt;</td>
+      <td>&lt;NA&gt;</td>
+      <td>2020-10-27 04:24:45</td>
+      <td>23.7</td>
+      <td>121.0</td>
+      <td>550</td>
+      <td>7</td>
+      <td>502</td>
+      <td>41.0</td>
+      <td>Taiwan*</td>
+      <td>2.309297</td>
+      <td>1.272727</td>
+      <td>NaN</td>
+      <td>23.7</td>
+      <td>121.0</td>
+      <td>10/26/20</td>
+      <td>550</td>
+    </tr>
+  </tbody>
+</table>
+<p>279 rows × 18 columns</p>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div></section><section>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[51]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># right join</span>
@@ -19803,7 +20137,7 @@ Name: Combined_Key, Length: 3958, dtype: string</pre>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[49]:</div>
+    <div class="prompt output_prompt">Out[51]:</div>
 
 
 
@@ -19978,109 +20312,109 @@ Name: Combined_Key, Length: 3958, dtype: string</pre>
       <td>NaN</td>
       <td>&lt;NA&gt;</td>
       <td>&lt;NA&gt;</td>
-      <td>2020-10-22 04:24:27</td>
+      <td>2020-10-27 04:24:45</td>
       <td>23.7</td>
       <td>121.0</td>
-      <td>544.0</td>
+      <td>550.0</td>
       <td>7.0</td>
-      <td>495.0</td>
-      <td>42.0</td>
+      <td>502.0</td>
+      <td>41.0</td>
       <td>Taiwan*</td>
-      <td>2.284104</td>
-      <td>1.286765</td>
+      <td>2.309297</td>
+      <td>1.272727</td>
       <td>NaN</td>
       <td>23.700000</td>
       <td>121.000000</td>
-      <td>10/17/20</td>
-      <td>535</td>
+      <td>10/22/20</td>
+      <td>548</td>
     </tr>
     <tr>
       <th>Taiwan*</th>
       <td>NaN</td>
       <td>&lt;NA&gt;</td>
       <td>&lt;NA&gt;</td>
-      <td>2020-10-22 04:24:27</td>
+      <td>2020-10-27 04:24:45</td>
       <td>23.7</td>
       <td>121.0</td>
-      <td>544.0</td>
+      <td>550.0</td>
       <td>7.0</td>
-      <td>495.0</td>
-      <td>42.0</td>
+      <td>502.0</td>
+      <td>41.0</td>
       <td>Taiwan*</td>
-      <td>2.284104</td>
-      <td>1.286765</td>
+      <td>2.309297</td>
+      <td>1.272727</td>
       <td>NaN</td>
       <td>23.700000</td>
       <td>121.000000</td>
-      <td>10/18/20</td>
-      <td>535</td>
+      <td>10/23/20</td>
+      <td>548</td>
     </tr>
     <tr>
       <th>Taiwan*</th>
       <td>NaN</td>
       <td>&lt;NA&gt;</td>
       <td>&lt;NA&gt;</td>
-      <td>2020-10-22 04:24:27</td>
+      <td>2020-10-27 04:24:45</td>
       <td>23.7</td>
       <td>121.0</td>
-      <td>544.0</td>
+      <td>550.0</td>
       <td>7.0</td>
-      <td>495.0</td>
-      <td>42.0</td>
+      <td>502.0</td>
+      <td>41.0</td>
       <td>Taiwan*</td>
-      <td>2.284104</td>
-      <td>1.286765</td>
+      <td>2.309297</td>
+      <td>1.272727</td>
       <td>NaN</td>
       <td>23.700000</td>
       <td>121.000000</td>
-      <td>10/19/20</td>
-      <td>540</td>
+      <td>10/24/20</td>
+      <td>550</td>
     </tr>
     <tr>
       <th>Taiwan*</th>
       <td>NaN</td>
       <td>&lt;NA&gt;</td>
       <td>&lt;NA&gt;</td>
-      <td>2020-10-22 04:24:27</td>
+      <td>2020-10-27 04:24:45</td>
       <td>23.7</td>
       <td>121.0</td>
-      <td>544.0</td>
+      <td>550.0</td>
       <td>7.0</td>
-      <td>495.0</td>
-      <td>42.0</td>
+      <td>502.0</td>
+      <td>41.0</td>
       <td>Taiwan*</td>
-      <td>2.284104</td>
-      <td>1.286765</td>
+      <td>2.309297</td>
+      <td>1.272727</td>
       <td>NaN</td>
       <td>23.700000</td>
       <td>121.000000</td>
-      <td>10/20/20</td>
-      <td>543</td>
+      <td>10/25/20</td>
+      <td>550</td>
     </tr>
     <tr>
       <th>Taiwan*</th>
       <td>NaN</td>
       <td>&lt;NA&gt;</td>
       <td>&lt;NA&gt;</td>
-      <td>2020-10-22 04:24:27</td>
+      <td>2020-10-27 04:24:45</td>
       <td>23.7</td>
       <td>121.0</td>
-      <td>544.0</td>
+      <td>550.0</td>
       <td>7.0</td>
-      <td>495.0</td>
-      <td>42.0</td>
+      <td>502.0</td>
+      <td>41.0</td>
       <td>Taiwan*</td>
-      <td>2.284104</td>
-      <td>1.286765</td>
+      <td>2.309297</td>
+      <td>1.272727</td>
       <td>NaN</td>
       <td>23.700000</td>
       <td>121.000000</td>
-      <td>10/21/20</td>
-      <td>544</td>
+      <td>10/26/20</td>
+      <td>550</td>
     </tr>
   </tbody>
 </table>
-<p>548 rows × 18 columns</p>
+<p>558 rows × 18 columns</p>
 </div>
 </div>
 
