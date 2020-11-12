@@ -39,6 +39,10 @@ About instructor: <https://www.datainpoint.com/>
 |2020-11-04|[Dataframe Wrangling with Pandas](https://datainpoint.github.io/classroom-dbs/05-dataframe-wrangling-with-pandas.slides.html)|||
 |2020-11-06|[Project: Taiwan Election 2020](https://datainpoint.github.io/classroom-dbs/06-project-taiwan-election-2020.slides.html)|[Link](https://lab.datainpoint.com/hub/user-redirect/git-pull?repo=https%3A%2F%2Fgithub.com%2Fdatainpoint%2Fexercise-advanced-pandas&urlpath=tree%2Fexercise-advanced-pandas%2Fexercises.ipynb&branch=main)|[Link](https://lab.datainpoint.com/hub/user-redirect/git-pull?repo=https%3A%2F%2Fgithub.com%2Fdatainpoint%2Fsuggested-answer-advanced-pandas&urlpath=tree%2Fsuggested-answer-advanced-pandas%2Fsuggested_answers.ipynb&branch=main)|
 |2020-11-11|[Project: Taiwan Election 2020](https://datainpoint.github.io/classroom-dbs/06-project-taiwan-election-2020.slides.html)|||
+|2020-11-13|[Introduction to PySpark](https://datainpoint.github.io/classroom-dbs/07-introduction-to-pyspark.slides.html)|||
+|2020-11-18|[Introduction to PySpark](https://datainpoint.github.io/classroom-dbs/07-introduction-to-pyspark.slides.html)|||
+|2020-11-20||||
+|2020-11-27||||
 
 How to convert `slides.html` to PDF format?
 - Add `?print-pdf` at the end of `slides.html` making it `slides.html?print-pdf` and press enter
