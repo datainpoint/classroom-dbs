@@ -120,7 +120,7 @@ class TaiwanElection2020:
         return legislative_regional
     def generate_legislative_at_large(self):
         legislative_at_large = pd.DataFrame()
-        for county in counties:
+        for county in self._counties:
             file_name = "不分區立委-A05-6-得票數一覽表({}).xls".format(county)
             file_url = quote_plus(file_name)
             spreadsheet_url = "https://taiwan-election-data.s3-ap-northeast-1.amazonaws.com/legislative_2020/{}".format(file_url)
