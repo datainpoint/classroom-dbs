@@ -43,6 +43,7 @@ About instructor: <https://www.datainpoint.com/>
 |2020-11-18|[Introduction to PySpark](https://datainpoint.github.io/classroom-dbs/07-introduction-to-pyspark.slides.html)|[Link](https://lab.datainpoint.com/hub/user-redirect/git-pull?repo=https%3A%2F%2Fgithub.com%2Fdatainpoint%2Fexercise-introduction-to-pyspark&urlpath=tree%2Fexercise-introduction-to-pyspark%2Fexercises.ipynb&branch=main)|[Link](https://lab.datainpoint.com/hub/user-redirect/git-pull?repo=https%3A%2F%2Fgithub.com%2Fdatainpoint%2Fsuggested-answer-introduction-to-pyspark&urlpath=tree%2Fsuggested-answer-introduction-to-pyspark%2Fsuggested_answers.ipynb&branch=main)|
 |2020-11-20|[Data Visualization with Matplotlib](https://datainpoint.github.io/classroom-dbs/08-data-visualization-with-matplotlib.slides.html)|||
 |2020-11-27|[Introduction to Machine Learning](https://datainpoint.github.io/classroom-dbs/09-introduction-to-machine-learning.slides.html)|||
+||[Key Takeaways](https://datainpoint.github.io/classroom-dbs/takeaways/)|||
 
 How to convert `slides.html` to PDF format?
 - Add `?print-pdf` at the end of `slides.html` making it `slides.html?print-pdf` and press enter
