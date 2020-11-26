@@ -2,9 +2,9 @@
 
 Kuo, Yao-Jen <yaojenkuo@datainpoint.com> from [DATAINPOINT](https://www.datainpoint.com/)
 
-### When should I use braces `()`, brackets `[]`, and curly braces `{}`?
+### When should I use parentheses `()`, brackets `[]`, and curly braces `{}`?
 
-- Braces `()`: used for function calls and creating tuples.
+- Parentheses `()`: used for function calls and creating tuples.
 - Brackets `[]`: used for extracting elements and creating lists.
 - Curly braces `{}`: used for print with format and creating `dict` and `set`.
 
