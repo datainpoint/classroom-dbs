@@ -2,10 +2,6 @@
 
 Kuo, Yao-Jen <yaojenkuo@datainpoint.com> from [DATAINPOINT](https://www.datainpoint.com/)
 
-### What if I'd like to use <https://lab.datainpoint.com> afterwards?
-
-Our lab environment uses a whitelist for authentication. You can become one of DATAINPOINT's paid subscribers to stay in the whitelist! Check <https://datainpoint.substack.com/about> for more details.
-
 ### When should I use braces `()`, brackets `[]`, and curly braces `{}`?
 
 - Braces `()`: used for function calls and creating tuples.
@@ -15,6 +11,10 @@ Our lab environment uses a whitelist for authentication. You can become one of D
 ### Why is indentation so important in Python?
 
 Python does not have the notation for building a struct(or a block). So indentation in Python is not just prettifying our codes, but an essential way to form a struct(or a block).
+
+### What if I'd like to use <https://lab.datainpoint.com> afterwards?
+
+Our lab environment uses a whitelist for authentication. You can become one of DATAINPOINT's paid subscribers to stay in the whitelist! Check <https://datainpoint.substack.com/about> for more details.
 
 ### How to share my Python scripts to my colleagues?
 
