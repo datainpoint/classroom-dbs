@@ -59,6 +59,19 @@ Totally. Programming can be quite frustrating for newbies, rumor has it we can "
 - [datatable](https://datatable.readthedocs.io/en/latest/)
 - [Dask](https://dask.org/)
 
+### I am interested in visualization with Python, what resource do you recoomend?
+
+- Static
+    - [Matplotlib](https://matplotlib.org/)
+    - [Seaborn](https://seaborn.pydata.org/)
+- Interactive
+    - [Plotly](https://plotly.com/python/)
+    - [Bokeh](https://bokeh.org/)
+- Dashboard
+    - [Dash](https://plotly.com/dash/)
+    - [Streamlit](https://www.streamlit.io/)
+    - [Voila](https://github.com/voila-dashboards/voila)
+
 ### I am interested in web scraping with Python, what resource do you recommend?
 
 - Web scraping requires basic understanding of web programming. So it is highly suggested to know the entry level of HTML/CSS/JavaScript, the so-called front-end.
@@ -75,6 +88,6 @@ Totally. Programming can be quite frustrating for newbies, rumor has it we can "
 - [The Matrix Calculus You Need For Deep Learning by Terence Parr and Jeremy Howard](https://explained.ai/matrix-calculus/)
 - [Machine Learning by Andrew Ng](https://www.coursera.org/learn/machine-learning)
 
-### Am I wasting my time since there is nothing relevant to programming in work?
+### Am I wasting my time since there is nothing relevant at work?
 
 Absolutely NO. Now we understand the fundamental concept and workflow in a data-driven project. We can communicate our requests and specifications with collaborators efficiently.
